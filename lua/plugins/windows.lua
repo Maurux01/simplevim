@@ -3,7 +3,7 @@ return {
   {
     "szw/vim-maximizer",
     keys = {
-      { "<leader>wm", "<cmd>MaximizerToggle<cr>", desc = "Maximize toggle" },
+      { "<leader>sm", "<cmd>MaximizerToggle<cr>", desc = "Maximize toggle" },
     },
   },
 }

@@ -96,10 +96,29 @@ map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
 -- File operations
 map("n", "<leader>w", "<cmd>w<cr>", { desc = "Save file" })
-map("n", "<leader>wq", "<cmd>wq<cr>", { desc = "Save and quit" })
+map("n", "<leader>wn", "<cmd>enew<cr>", { desc = "New file" })
+map("n", "<leader>wd", function()
+  local file = vim.fn.expand("%")
+  if file ~= "" then
+    vim.fn.delete(file)
+    vim.cmd("bdelete!")
+    print("Deleted: " .. file)
+  else
+    print("No file to delete")
+  end
+end, { desc = "Delete current file" })
+map("n", "<leader>wm", function()
+  local dir = vim.fn.input("Create directory: ", vim.fn.expand("%:p:h") .. "/")
+  if dir ~= "" then
+    vim.fn.mkdir(dir, "p")
+    print("Created directory: " .. dir)
+  end
+end, { desc = "Create directory" })
+
+-- Quit operations
 map("n", "<leader>q", "<cmd>q<cr>", { desc = "Quit" })
 map("n", "<leader>q!", "<cmd>q!<cr>", { desc = "Quit without saving" })
-map("n", "<leader>w!", "<cmd>w!<cr>", { desc = "Force save (overwrite)" })
+map("n", "<leader>qq", "<cmd>wq<cr>", { desc = "Save and quit" })
 
 -- Dismiss notifications
 map("n", "<leader>nd", "<cmd>NoiceDismiss<cr>", { desc = "Dismiss notifications" })
@@ -131,7 +150,7 @@ vim.api.nvim_create_autocmd("User", {
       { "<leader>s", group = "󰓩 Split" },
       { "<leader>t", group = " Tab/Terminal" },
       { "<leader>w", group = "󰒾 File" },
-      { "<leader>q", desc = "󰒾 Quit" },
+      { "<leader>q", group = "󰒾 Quit" },
       { "<leader>x", group = " Diagnostics" },
       { "<leader>n", group = "󰒲 Notifications" },
       { "<leader>/", desc = "󰒬 Toggle comment" },

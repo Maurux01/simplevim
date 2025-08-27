@@ -120,10 +120,14 @@ All plugins will be installed automatically on first run. Wait for it to finish 
 
 ### File Operations
 - `<Space>w` - Save file
-- `<Space>wq` - Save and quit
+- `<Space>wn` - New file
+- `<Space>wd` - Delete current file
+- `<Space>wm` - Create directory
+
+### Quit Operations
 - `<Space>q` - Quit
 - `<Space>q!` - Quit without saving
-- `<Space>w!` - Force save (overwrite)
+- `<Space>qq` - Save and quit
 
 ### Navigation
 - `<Ctrl-h/j/k/l>` - Move between windows
