@@ -28,6 +28,9 @@ opt.listchars = {
   precedes = "<",
   nbsp = "␣"
 }
+opt.fillchars = {
+  eob = " "
+}
 
 -- Search
 opt.ignorecase = true
