@@ -32,7 +32,24 @@
 - Node.js (para LSP de TypeScript)
 - Python (para LSP de Python)
 
-### 2. Instalar configuración
+### 2. Instalación automática
+
+**Opción 1: Instalador automático (Recomendado)**
+
+```bash
+# Clonar el repositorio
+git clone https://github.com/tu-usuario/simplevim.git
+cd simplevim
+
+# Windows
+install.bat
+
+# Linux/macOS
+chmod +x install.sh
+./install.sh
+```
+
+**Opción 2: Instalación manual**
 
 **Windows:**
 ```cmd
