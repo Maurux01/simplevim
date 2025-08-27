@@ -43,12 +43,14 @@ echo -e "${YELLOW}🧹 Cleaning previous Neovim installations...${NC}"
 rm -rf ~/.config/nvim
 rm -rf ~/.local/state/nvim  
 rm -rf ~/.local/share/nvim
-
+rm -rf ~/.cache/nvim
 
 # Remove Flatpak Neovim data (if exists)
 rm -rf ~/.var/app/io.neovim.nvim/config/nvim 2>/dev/null
 rm -rf ~/.var/app/io.neovim.nvim/data/nvim 2>/dev/null
 rm -rf ~/.var/app/io.neovim.nvim/.local/state/nvim 2>/dev/null
+
+echo -e "${GREEN}✅ Cleaned all Neovim directories${NC}"
 
 echo -e "${BLUE}📦 Installing simplevim...${NC}"
 

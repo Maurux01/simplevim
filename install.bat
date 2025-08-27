@@ -24,9 +24,11 @@ echo.
 
 echo 🧹 Cleaning previous Neovim installations...
 
-:: Remove all Neovim config and data directories
+:: Remove all Neovim config, data and state directories
 if exist "%LOCALAPPDATA%\nvim" rmdir /s /q "%LOCALAPPDATA%\nvim" >nul 2>&1
 if exist "%LOCALAPPDATA%\nvim-data" rmdir /s /q "%LOCALAPPDATA%\nvim-data" >nul 2>&1
+if exist "%LOCALAPPDATA%\nvim-state" rmdir /s /q "%LOCALAPPDATA%\nvim-state" >nul 2>&1
+echo ✅ Cleaned all Neovim directories
 
 echo 📦 Installing simplevim...
 
