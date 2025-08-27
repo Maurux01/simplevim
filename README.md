@@ -30,6 +30,38 @@
 
 ## 🚀 Installation
 
+### 0. Clean previous installations (if needed)
+
+If you have issues with corrupted plugins or configurations, clean everything first:
+
+**Linux / MacOS (unix):**
+```bash
+rm -rf ~/.config/nvim
+rm -rf ~/.local/state/nvim
+rm -rf ~/.local/share/nvim
+```
+
+**Flatpak (linux):**
+```bash
+rm -rf ~/.var/app/io.neovim.nvim/config/nvim
+rm -rf ~/.var/app/io.neovim.nvim/data/nvim
+rm -rf ~/.var/app/io.neovim.nvim/.local/state/nvim
+```
+
+**Windows CMD:**
+```cmd
+rd /s /q %LOCALAPPDATA%\nvim
+rd /s /q %LOCALAPPDATA%\nvim-data
+rd /s /q %LOCALAPPDATA%\nvim-state
+```
+
+**Windows PowerShell:**
+```powershell
+Remove-Item -Recurse -Force ~\AppData\Local\nvim
+Remove-Item -Recurse -Force ~\AppData\Local\nvim-data
+Remove-Item -Recurse -Force ~\AppData\Local\nvim-state
+```
+
 ### 1. Requirements
 - Neovim 0.9+
 - Git

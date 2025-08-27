@@ -3,22 +3,12 @@ return {
     "williamboman/mason.nvim",
     cmd = "Mason",
     keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
-    build = ":MasonUpdate",
-    opts = {
-      ensure_installed = {
-        "stylua",
-        "shfmt",
-      },
-    },
+    opts = {},
   },
 
   {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-      "mason.nvim",
-      "mason-lspconfig.nvim",
-    },
     config = function()
       local lspconfig = require("lspconfig")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -40,26 +30,6 @@ return {
             vim.lsp.buf.format({ async = true })
           end, opts)
         end,
-      })
-
-      -- Setup servers
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities,
-        settings = {
-          Lua = {
-            diagnostics = {
-              globals = { "vim" },
-            },
-          },
-        },
-      })
-
-      lspconfig.pyright.setup({
-        capabilities = capabilities,
-      })
-
-      lspconfig.ts_ls.setup({
-        capabilities = capabilities,
       })
     end,
   },
