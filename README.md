@@ -1,6 +1,6 @@
 # 🚀 simplevim
 **fast simple cute nvim** - Minimal, modern and functional Neovim configuration
-![alt text](image.png)
+![alt text](pics/image.png)
 ## ✨ Features
 
 - ⚡ **Ultra fast**: Loads in < 0.3 seconds
@@ -238,7 +238,7 @@ All plugins will be installed automatically on first run. Wait for it to finish 
 - `:Theme cyber` - Cyberdream
 
 
-![alt text](image-1.png)![alt text](image-2.png)![alt text](image-3.png)![alt text](image-4.png)![alt text](image-6.png)![alt text](image-7.png)![alt text](image-8.png)![alt text](image-9.png)![alt text](image-10.png)![alt text](image-11.png)
+![alt text](pics/image-1.png)![alt text](pics/image-2.png)![alt text](pics/image-3.png)![alt text](pics/image-4.png)![alt text](pics/image-6.png)![alt text](pics/image-7.png)![alt text](pics/image-8.png)![alt text](pics/image-9.png)![alt text](pics/image-10.png)![alt text](pics/image-11.png)
 
 
 ## 🎨 Customization
