@@ -118,6 +118,13 @@ All plugins will be installed automatically on first run. Wait for it to finish 
 - `<Ctrl-s>` - Save file
 - `<Esc>` - Clear search
 
+### File Operations
+- `<Space>w` - Save file
+- `<Space>wq` - Save and quit
+- `<Space>q` - Quit
+- `<Space>q!` - Quit without saving
+- `<Space>w!` - Force save (overwrite)
+
 ### Navigation
 - `<Ctrl-h/j/k/l>` - Move between windows
 - `<Shift-h/l>` - Switch between buffers
@@ -160,30 +167,27 @@ All plugins will be installed automatically on first run. Wait for it to finish 
 - `<Space>bo` - Close other buffers
 - `<Space>ba` - Close all buffers
 
-### Window Control
+### Splits/Windows
 **Navigation:**
 - `<Ctrl-h/j/k/l>` - Move between windows
 - `<Alt-h/j/k/l>` - Alternative navigation
 
 **Create/Close:**
-- `<Space>wv` - Vertical split
-- `<Space>wh` - Horizontal split
-- `<Space>wx` - Close current window
-- `<Space>wo` - Close other windows
-- `<Space>wm` - Maximize/restore window
+- `<Space>sv` - Vertical split
+- `<Space>sh` - Horizontal split
+- `<Space>sx` - Close current split
+- `<Space>so` - Close other splits
+- `<Space>sm` - Maximize/restore split
 
 **Resize:**
 - `<Shift-Arrows>` - Fast resize (±5)
 - `<Ctrl-Arrows>` - Slow resize (±2)
-- `<Space>w+/-` - Height ±10
-- `<Space>w</>` - Width ±10
-- `<Space>we` - Equal sizes
+- `<Space>s+/-` - Height ±10
+- `<Space>s</>` - Width ±10
+- `<Space>se` - Equal sizes
 
 **Move windows:**
-- `<Space>wH/J/K/L` - Move window left/down/up/right
-
-**Compatibility (legacy):**
-- `<Space>sv/sh/se/sx` - Classic splits
+- `<Space>sH/J/K/L` - Move window left/down/up/right
 
 ### Terminal
 - `<Space>th` - Horizontal terminal

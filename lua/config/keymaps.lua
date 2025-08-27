@@ -44,13 +44,13 @@ map("n", "<leader>bp", "<cmd>bprevious<cr>", { desc = "Previous buffer" })
 map("n", "<leader>bf", "<cmd>bfirst<cr>", { desc = "First buffer" })
 map("n", "<leader>bl", "<cmd>blast<cr>", { desc = "Last buffer" })
 
--- Window Management
-map("n", "<leader>wv", "<cmd>vsplit<cr>", { desc = "Split vertical" })
-map("n", "<leader>wh", "<cmd>split<cr>", { desc = "Split horizontal" })
-map("n", "<leader>we", "<C-w>=", { desc = "Equal windows" })
-map("n", "<leader>wx", "<cmd>close<cr>", { desc = "Close window" })
-map("n", "<leader>wo", "<cmd>only<cr>", { desc = "Close other windows" })
-map("n", "<leader>wm", "<cmd>MaximizerToggle<cr>", { desc = "Maximize toggle" })
+-- Splits/Windows Management
+map("n", "<leader>sv", "<cmd>vsplit<cr>", { desc = "Split vertical" })
+map("n", "<leader>sh", "<cmd>split<cr>", { desc = "Split horizontal" })
+map("n", "<leader>se", "<C-w>=", { desc = "Equal splits" })
+map("n", "<leader>sx", "<cmd>close<cr>", { desc = "Close split" })
+map("n", "<leader>so", "<cmd>only<cr>", { desc = "Close other splits" })
+map("n", "<leader>sm", "<cmd>MaximizerToggle<cr>", { desc = "Maximize toggle" })
 
 -- Window Navigation (Alt + hjkl)
 map("n", "<A-h>", "<C-w>h", { desc = "Go to left window" })
@@ -59,10 +59,10 @@ map("n", "<A-k>", "<C-w>k", { desc = "Go to upper window" })
 map("n", "<A-l>", "<C-w>l", { desc = "Go to right window" })
 
 -- Window Swapping
-map("n", "<leader>wH", "<C-w>H", { desc = "Move window left" })
-map("n", "<leader>wJ", "<C-w>J", { desc = "Move window down" })
-map("n", "<leader>wK", "<C-w>K", { desc = "Move window up" })
-map("n", "<leader>wL", "<C-w>L", { desc = "Move window right" })
+map("n", "<leader>sH", "<C-w>H", { desc = "Move window left" })
+map("n", "<leader>sJ", "<C-w>J", { desc = "Move window down" })
+map("n", "<leader>sK", "<C-w>K", { desc = "Move window up" })
+map("n", "<leader>sL", "<C-w>L", { desc = "Move window right" })
 
 -- Window Resizing (Shift + Arrow keys)
 map("n", "<S-Up>", "<cmd>resize +5<cr>", { desc = "Increase height" })
@@ -70,17 +70,13 @@ map("n", "<S-Down>", "<cmd>resize -5<cr>", { desc = "Decrease height" })
 map("n", "<S-Left>", "<cmd>vertical resize -5<cr>", { desc = "Decrease width" })
 map("n", "<S-Right>", "<cmd>vertical resize +5<cr>", { desc = "Increase width" })
 
--- Quick Window Actions
-map("n", "<leader>w+", "<cmd>resize +10<cr>", { desc = "Increase height +10" })
-map("n", "<leader>w-", "<cmd>resize -10<cr>", { desc = "Decrease height -10" })
-map("n", "<leader>w>", "<cmd>vertical resize +10<cr>", { desc = "Increase width +10" })
-map("n", "<leader>w<", "<cmd>vertical resize -10<cr>", { desc = "Decrease width -10" })
+-- Quick Split Actions
+map("n", "<leader>s+", "<cmd>resize +10<cr>", { desc = "Increase height +10" })
+map("n", "<leader>s-", "<cmd>resize -10<cr>", { desc = "Decrease height -10" })
+map("n", "<leader>s>", "<cmd>vertical resize +10<cr>", { desc = "Increase width +10" })
+map("n", "<leader>s<", "<cmd>vertical resize -10<cr>", { desc = "Decrease width -10" })
 
--- Legacy splits (mantener compatibilidad)
-map("n", "<leader>sv", "<cmd>vsplit<cr>", { desc = "Split vertical" })
-map("n", "<leader>sh", "<cmd>split<cr>", { desc = "Split horizontal" })
-map("n", "<leader>se", "<C-w>=", { desc = "Equal splits" })
-map("n", "<leader>sx", "<cmd>close<cr>", { desc = "Close split" })
+
 
 -- Terminal
 map("n", "<leader>th", "<cmd>split | terminal<cr>", { desc = "Terminal horizontal" })
@@ -97,6 +93,13 @@ map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsea
 
 -- Save file
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
+
+-- File operations
+map("n", "<leader>w", "<cmd>w<cr>", { desc = "Save file" })
+map("n", "<leader>wq", "<cmd>wq<cr>", { desc = "Save and quit" })
+map("n", "<leader>q", "<cmd>q<cr>", { desc = "Quit" })
+map("n", "<leader>q!", "<cmd>q!<cr>", { desc = "Quit without saving" })
+map("n", "<leader>w!", "<cmd>w!<cr>", { desc = "Force save (overwrite)" })
 
 -- Dismiss notifications
 map("n", "<leader>nd", "<cmd>NoiceDismiss<cr>", { desc = "Dismiss notifications" })
@@ -127,7 +130,8 @@ vim.api.nvim_create_autocmd("User", {
       { "<leader>gh", group = "󰊢 Hunks" },
       { "<leader>s", group = "󰓩 Split" },
       { "<leader>t", group = " Tab/Terminal" },
-      { "<leader>w", group = " Window" },
+      { "<leader>w", group = "󰒾 File" },
+      { "<leader>q", desc = "󰒾 Quit" },
       { "<leader>x", group = " Diagnostics" },
       { "<leader>n", group = "󰒲 Notifications" },
       { "<leader>/", desc = "󰒬 Toggle comment" },

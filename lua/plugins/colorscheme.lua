@@ -267,7 +267,9 @@ return {
         
         -- Aplicar tema
         vim.cmd("colorscheme " .. next_theme)
-        print("Theme: " .. next_theme .. " (" .. next_idx .. "/" .. #themes .. ")")
+        vim.schedule(function()
+          print("Theme: " .. next_theme .. " (" .. next_idx .. "/" .. #themes .. ")")
+        end)
       end, { desc = "Next theme" })
     end,
   },
