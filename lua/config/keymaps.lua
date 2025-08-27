@@ -36,6 +36,14 @@ map("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Delete buffer" })
 map("n", "<leader>bo", "<cmd>%bd|e#|bd#<cr>", { desc = "Close other buffers" })
 map("n", "<leader>ba", "<cmd>%bd<cr>", { desc = "Close all buffers" })
 
+-- Additional buffer navigation
+map("n", "<Tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+map("n", "<S-Tab>", "<cmd>bprevious<cr>", { desc = "Previous buffer" })
+map("n", "<leader>bn", "<cmd>bnext<cr>", { desc = "Next buffer" })
+map("n", "<leader>bp", "<cmd>bprevious<cr>", { desc = "Previous buffer" })
+map("n", "<leader>bf", "<cmd>bfirst<cr>", { desc = "First buffer" })
+map("n", "<leader>bl", "<cmd>blast<cr>", { desc = "Last buffer" })
+
 -- Window Management
 map("n", "<leader>wv", "<cmd>vsplit<cr>", { desc = "Split vertical" })
 map("n", "<leader>wh", "<cmd>split<cr>", { desc = "Split horizontal" })

@@ -110,13 +110,92 @@ return {
     end,
   },
 
+  -- Nord
+  {
+    "shaunsingh/nord.nvim",
+    config = function()
+      vim.g.nord_contrast = true
+      vim.g.nord_borders = false
+      vim.g.nord_disable_background = false
+      vim.g.nord_italic = false
+      vim.g.nord_uniform_diff_background = true
+      vim.g.nord_bold = false
+    end,
+  },
+
+  -- Nightfox
+  {
+    "EdenEast/nightfox.nvim",
+    config = function()
+      require("nightfox").setup({
+        options = {
+          compile_path = vim.fn.stdpath("cache") .. "/nightfox",
+          compile_file_suffix = "_compiled",
+          transparent = false,
+          terminal_colors = true,
+          dim_inactive = false,
+          module_default = true,
+          styles = {
+            comments = "italic",
+            conditionals = "NONE",
+            constants = "NONE",
+            functions = "NONE",
+            keywords = "NONE",
+            numbers = "NONE",
+            operators = "NONE",
+            strings = "NONE",
+            types = "NONE",
+            variables = "NONE",
+          },
+        },
+      })
+    end,
+  },
+
+  -- Monokai Pro
+  {
+    "loctvl842/monokai-pro.nvim",
+    config = function()
+      require("monokai-pro").setup({
+        transparent_background = false,
+        terminal_colors = true,
+        devicons = true,
+        styles = {
+          comment = { italic = true },
+          keyword = { italic = true },
+          type = { italic = true },
+          storageclass = { italic = true },
+          structure = { italic = true },
+          parameter = { italic = true },
+          annotation = { italic = true },
+          tag_attribute = { italic = true },
+        },
+        filter = "pro",
+      })
+    end,
+  },
+
+  -- Cyberdream
+  {
+    "scottmckendry/cyberdream.nvim",
+    config = function()
+      require("cyberdream").setup({
+        transparent = false,
+        italic_comments = true,
+        hide_fillchars = false,
+        borderless_telescope = true,
+        terminal_colors = true,
+      })
+    end,
+  },
+
   -- Configuración inicial y comando para cambiar temas
   {
     "folke/tokyonight.nvim",
     config = function()
       -- Cargar tema guardado o por defecto
       local data_path = vim.fn.stdpath("data") .. "/theme_index.txt"
-      local themes = { "tokyonight", "catppuccin", "gruvbox", "kanagawa", "dracula", "onedark" }
+      local themes = { "tokyonight", "catppuccin", "gruvbox", "kanagawa", "dracula", "onedark", "nord", "nightfox", "monokai-pro", "cyberdream" }
       local theme_idx = 1
       
       local file = io.open(data_path, "r")
@@ -139,6 +218,10 @@ return {
           kanagawa = "kanagawa",
           dracula = "dracula",
           onedark = "onedark",
+          nord = "nord",
+          nightfox = "nightfox",
+          monokai = "monokai-pro",
+          cyber = "cyberdream",
         }
         
         local theme = themes[opts.args] or opts.args
@@ -146,18 +229,18 @@ return {
           vim.cmd("colorscheme " .. theme)
           print("Tema cambiado a: " .. theme)
         else
-          print("Temas disponibles: tokyo, cat, gruvbox, kanagawa, dracula, onedark")
+          print("Temas disponibles: tokyo, cat, gruvbox, kanagawa, dracula, onedark, nord, nightfox, monokai, cyber")
         end
       end, {
         nargs = 1,
         complete = function()
-          return { "tokyo", "cat", "gruvbox", "kanagawa", "dracula", "onedark" }
+          return { "tokyo", "cat", "gruvbox", "kanagawa", "dracula", "onedark", "nord", "nightfox", "monokai", "cyber" }
         end,
       })
       
       -- Atajo de teclado para cambiar tema secuencial y persistente
       vim.keymap.set("n", "<leader>ct", function()
-        local themes = { "tokyonight", "catppuccin", "gruvbox", "kanagawa", "dracula", "onedark" }
+        local themes = { "tokyonight", "catppuccin", "gruvbox", "kanagawa", "dracula", "onedark", "nord", "nightfox", "monokai-pro", "cyberdream" }
         local data_path = vim.fn.stdpath("data") .. "/theme_index.txt"
         
         -- Leer índice actual

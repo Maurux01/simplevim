@@ -12,7 +12,7 @@
 ## 📦 Included plugins
 
 - **Plugin Manager**: `lazy.nvim` (fastest)
-- **Themes**: 6 dark themes (Tokyo Night, Catppuccin, Gruvbox, Kanagawa, Dracula, OneDark)
+- **Themes**: 10 dark themes (Tokyo Night, Catppuccin, Gruvbox, Kanagawa, Dracula, OneDark, Nord, Nightfox, Monokai Pro, Cyberdream)
 - **LSP**: `mason.nvim` + `lspconfig` (Lua, Python, TypeScript)
 - **Autocompletion**: `nvim-cmp` + `LuaSnip` + `friendly-snippets`
 - **Explorer**: `neo-tree.nvim` (with icons)
@@ -146,10 +146,19 @@ All plugins will be installed automatically on first run. Wait for it to finish 
 - `<Space>ghp` - Preview hunk
 
 ### Buffers
+**Navigation:**
+- `<Shift-h/l>` - Previous/Next buffer
+- `<Tab>` - Next buffer
+- `<Shift-Tab>` - Previous buffer
+- `<Space>bn` - Next buffer
+- `<Space>bp` - Previous buffer
+- `<Space>bf` - First buffer
+- `<Space>bl` - Last buffer
+
+**Management:**
 - `<Space>bd` - Close buffer
 - `<Space>bo` - Close other buffers
 - `<Space>ba` - Close all buffers
-- `<Space>bp` - Pin/unpin buffer
 
 ### Window Control
 **Navigation:**
@@ -214,6 +223,10 @@ All plugins will be installed automatically on first run. Wait for it to finish 
 - `:Theme kanagawa` - Kanagawa Wave
 - `:Theme dracula` - Dracula
 - `:Theme onedark` - One Dark
+- `:Theme nord` - Nord
+- `:Theme nightfox` - Nightfox
+- `:Theme monokai` - Monokai Pro
+- `:Theme cyber` - Cyberdream
 
 ## 🎨 Customization
 
@@ -250,6 +263,10 @@ lua/
 :Theme kanagawa   " Kanagawa
 :Theme dracula    " Dracula
 :Theme onedark    " One Dark
+:Theme nord       " Nord
+:Theme nightfox   " Nightfox
+:Theme monokai    " Monokai Pro
+:Theme cyber      " Cyberdream
 :Theme tokyo      " Tokyo Night (default)
 ```
 
