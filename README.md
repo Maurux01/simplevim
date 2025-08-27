@@ -49,17 +49,15 @@ rm -rf ~/.var/app/io.neovim.nvim/.local/state/nvim
 ```
 
 **Windows CMD:**
-```cmd
-rd /s /q %LOCALAPPDATA%\nvim
-rd /s /q %LOCALAPPDATA%\nvim-data
-rd /s /q %LOCALAPPDATA%\nvim-state
+```
+rd -r ~\AppData\Local\nvim
+rd -r ~\AppData\Local\nvim-data
 ```
 
 **Windows PowerShell:**
-```powershell
-Remove-Item -Recurse -Force ~\AppData\Local\nvim
-Remove-Item -Recurse -Force ~\AppData\Local\nvim-data
-Remove-Item -Recurse -Force ~\AppData\Local\nvim-state
+```
+rm -Force ~\AppData\Local\nvim
+rm -Force ~\AppData\Local\nvim-data
 ```
 
 ### 1. Requirements
