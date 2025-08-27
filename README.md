@@ -26,6 +26,7 @@
 - **Animations**: Animated cursor, smooth scroll, indent guides
 - **Which-key**: Visual guide for keybindings
 - **Whitespace**: Visualization of spaces and tabs
+- **Command line**: Smart suggestions with `wilder.nvim`
 
 ## 🚀 Installation
 
@@ -158,6 +159,16 @@ All plugins will be installed automatically on first run. Wait for it to finish 
 - `<Space>tn` - Next tab
 - `<Space>tp` - Previous tab
 
+### Comments
+- `gcc` - Comment/uncomment line
+- `gc` - Comment/uncomment (normal and visual)
+- `<Space>/` - Toggle comment
+- `<Ctrl-/>` - Toggle comment
+- `gb` - Block comment (normal and visual)
+
+### Notifications
+- `<Space>nd` - Dismiss all notifications
+
 ### Visualization
 - Spaces shown as dots (·)
 - Tabs shown as double dots (::)
@@ -196,7 +207,9 @@ lua/
     ├── formatting.lua # Auto formatting
     ├── treesitter.lua # Syntax highlighting
     ├── snippets.lua   # Custom snippets
-    └── editor.lua     # Editing tools
+    ├── editor.lua     # Editing tools
+    ├── cmdline.lua    # Command line suggestions
+    └── windows.lua    # Window management
 ```
 
 ### Change theme

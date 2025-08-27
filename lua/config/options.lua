@@ -24,7 +24,6 @@ opt.list = true
 opt.listchars = {
   space = "·",
   tab = "::",
-  trail = " ",
   extends = ">",
   precedes = "<",
   nbsp = "␣"
@@ -42,6 +41,11 @@ opt.timeoutlen = 300
 opt.undofile = true
 opt.swapfile = false
 opt.backup = false
+
+-- Terminal completion
+opt.wildmenu = true
+opt.wildmode = "longest:full,full"
+opt.wildoptions = "pum"
 
 -- Splits
 opt.splitbelow = true
