@@ -116,7 +116,7 @@ return {
         dashboard.button("r", "  Recent Files", "<cmd>Telescope oldfiles<cr>"),
         dashboard.button("g", "  Find Text", "<cmd>Telescope live_grep<cr>"),
         dashboard.button("e", "  File Explorer", "<cmd>Neotree toggle<cr>"),
-        dashboard.button("c", "  Config", "<cmd>e $MYVIMRC<cr>"),
+        dashboard.button("c", "  Config", "<cmd>Neotree " .. vim.fn.stdpath("config") .. "<cr>"),
         dashboard.button("l", "󰒲  Lazy", "<cmd>Lazy<cr>"),
         dashboard.button("m", "  Mason", "<cmd>Mason<cr>"),
         dashboard.button("q", "  Quit", "<cmd>qa<cr>"),
