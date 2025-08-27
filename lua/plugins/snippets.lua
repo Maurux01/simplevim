@@ -4,9 +4,6 @@ return {
     build = "make install_jsregexp",
     dependencies = {
       "rafamadriz/friendly-snippets",
-      config = function()
-        require("luasnip.loaders.from_vscode").lazy_load()
-      end,
     },
     opts = {
       history = true,
@@ -24,6 +21,7 @@ return {
       { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
     },
     config = function()
+      require("luasnip.loaders.from_vscode").lazy_load()
       local ls = require("luasnip")
       local s = ls.snippet
       local t = ls.text_node

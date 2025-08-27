@@ -35,6 +35,6 @@ require("lazy").setup({
     },
   },
   git = {
-    timeout = 300,
+    timeout = 600,
   },
 })

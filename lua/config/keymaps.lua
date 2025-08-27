@@ -82,11 +82,11 @@ map("n", "<leader>s<", "<cmd>vertical resize -10<cr>", { desc = "Decrease width 
 map("n", "<leader>th", "<cmd>split | terminal<cr>", { desc = "Terminal horizontal" })
 map("n", "<leader>tv", "<cmd>vsplit | terminal<cr>", { desc = "Terminal vertical" })
 map("n", "<leader>tt", "<cmd>tabnew | terminal<cr>", { desc = "Terminal tab" })
-map("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
-map("t", "<C-h>", "<C-\\><C-n><C-w>h", { desc = "Terminal left" })
-map("t", "<C-j>", "<C-\\><C-n><C-w>j", { desc = "Terminal down" })
-map("t", "<C-k>", "<C-\\><C-n><C-w>k", { desc = "Terminal up" })
-map("t", "<C-l>", "<C-\\><C-n><C-w>l", { desc = "Terminal right" })
+map("t", "<Esc>", "<C-\\_><C-n>", { desc = "Exit terminal mode" })
+map("t", "<C-h>", "<C-\\_><C-n><C-w>h", { desc = "Terminal left" })
+map("t", "<C-j>", "<C-\\_><C-n><C-w>j", { desc = "Terminal down" })
+map("t", "<C-k>", "<C-\\_><C-n><C-w>k", { desc = "Terminal up" })
+map("t", "<C-l>", "<C-\\_><C-n><C-w>l", { desc = "Terminal right" })
 
 -- Clear search with <esc>
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
@@ -98,7 +98,7 @@ map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 map("n", "<leader>w", "<cmd>w<cr>", { desc = "Save file" })
 map("n", "<leader>wn", "<cmd>enew<cr>", { desc = "New file" })
 map("n", "<leader>wd", function()
-  local file = vim.fn.expand("%")
+  local file = vim.fn.expand("%”)
   if file ~= "" then
     vim.fn.delete(file)
     vim.cmd("bdelete!")
@@ -130,6 +130,9 @@ map("v", ">", ">gv")
 -- Lazy
 map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
+-- Zen mode
+map("n", "<leader>z", "<cmd>ZenMode<cr>", { desc = "Zen mode" })
+
 -- Tabs
 map("n", "<leader>to", "<cmd>tabnew<cr>", { desc = "New tab" })
 map("n", "<leader>tx", "<cmd>tabclose<cr>", { desc = "Close tab" })
@@ -153,6 +156,7 @@ vim.api.nvim_create_autocmd("User", {
       { "<leader>q", group = "󰒾 Quit" },
       { "<leader>x", group = " Diagnostics" },
       { "<leader>n", group = "󰒲 Notifications" },
+      { "<leader>z", desc = "Zen mode" },
       { "<leader>/", desc = "󰒬 Toggle comment" },
     })
   end,
