@@ -100,27 +100,49 @@ return {
       local dashboard = require("alpha.themes.dashboard")
 
       dashboard.section.header.val = {
-        "                                                     ",
-        "  ███████╗██╗███╗   ███╗██████╗ ██╗     ███████╗    ",
-        "  ██╔════╝██║████╗ ████║██╔══██╗██║     ██╔════╝    ",
-        "  ███████╗██║██╔████╔██║██████╔╝██║     █████╗      ",
-        "  ╚════██║██║██║╚██╔╝██║██╔═══╝ ██║     ██╔══╝      ",
-        "  ███████║██║██║ ╚═╝ ██║██║     ███████╗███████╗    ",
-        "  ╚══════╝╚═╝╚═╝     ╚═╝╚═╝     ╚══════╝╚══════╝    ",
-        "                                                     ",
-        "            fast simple cute nvim                    ",
+        "                                   ",
+        "   ⣴⣶⣤⢤⣆⣤⠤⣤⠆     ⢈⣭⣿⣶⣿⣦⣴⣆          ",
+        "    ⠉⠛⣿⣿⣿⣿⣶⣦⣤⣠⣠⣾⣿⣿⣿⡿⠋⠉⠉⠛⣿⣿⣛⣦       ",
+        "          ⠈⣿⣿⣟⣆ ⣾⣿⣿⣷    ⠛⠿⣿⣧⣄     ",
+        "           ⣸⣿⣿⣧ ⣻⠛⣿⣿⣷⣄⣠⣄⣠⣀⠈⠿⠄    ",
+        "          ⣠⣿⣿⣿⠈    ⣻⣿⣿⣿⣿⣿⣿⣿⣿⣟⣳⣤⣠⣠   ",
+        "   ⣠⣧⣶⣤⣄ ⣸⣿⣿⠘  ⣀⣴⣿⣿⣿⡿⠛⣿⣿⣧⠈⣿⠿⠟⠛⠿⠄  ",
+        "  ⣰⣿⣿⠛⠛⣿⣿⣆⣹⣿⣷   ⢊⣿⣿⡏  ⣸⣿⣿⠇ ⣀⣠⣄⣾⠄   ",
+        " ⣠⣿⠿⠋ ⣀⣿⣿⣷⠘⣿⣿⣆⣀ ⣸⣟⣿⣿⣄ ⣸⣿⣿⠇⣪⣿⡿⠿⣿⣷⣄  ",
+        " ⠙⠃   ⣼⣿⡟  ⠈⠛⣿⣿⣆⣌⠇⠛⣿⣿⣷⣿⣿⣿ ⣿⣿⠇ ⠛⠷⣄ ",
+        "      ⣻⣿⣿⣄   ⠈⠛⣿⣿⣿⣷⣿⣿⣿⣿⣿⣿⡟ ⠫⣿⣿⠆     ",
+        "       ⠛⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⣀⣠⣤⣾⡿⠃     ",
+        "                                   ",
+        "        🚀 S I M P L E V I M 🚀        ",
+        "          fast • simple • cute         ",
+        "                                   ",
       }
 
       dashboard.section.buttons.val = {
-        dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
-        dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
-        dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
-        dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
-        dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
-        dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
-        dashboard.button("q", " " .. " Quit", ":qa<CR>"),
+        dashboard.button("f", "  Find File", "<cmd>Telescope find_files<cr>"),
+        dashboard.button("n", "  New File", "<cmd>ene <BAR> startinsert<cr>"),
+        dashboard.button("r", "  Recent Files", "<cmd>Telescope oldfiles<cr>"),
+        dashboard.button("g", "  Find Text", "<cmd>Telescope live_grep<cr>"),
+        dashboard.button("e", "  File Explorer", "<cmd>Neotree toggle<cr>"),
+        dashboard.button("c", "  Config", "<cmd>e $MYVIMRC<cr>"),
+        dashboard.button("l", "󰒲  Lazy", "<cmd>Lazy<cr>"),
+        dashboard.button("m", "  Mason", "<cmd>Mason<cr>"),
+        dashboard.button("q", "  Quit", "<cmd>qa<cr>"),
       }
 
+      -- Footer
+      local function footer()
+        local total_plugins = #vim.tbl_keys(require("lazy").plugins())
+        local datetime = os.date(" %d-%m-%Y   %H:%M:%S")
+        local version = vim.version()
+        local nvim_version_info = "   v" .. version.major .. "." .. version.minor .. "." .. version.patch
+
+        return datetime .. "   " .. total_plugins .. " plugins" .. nvim_version_info
+      end
+
+      dashboard.section.footer.val = footer()
+
+      dashboard.opts.opts.noautocmd = true
       alpha.setup(dashboard.opts)
     end,
   },

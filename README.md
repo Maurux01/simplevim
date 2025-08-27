@@ -22,6 +22,7 @@
 - **Formato**: `conform.nvim` (automático al guardar)
 - **Syntax**: `nvim-treesitter` (highlighting avanzado)
 - **Edición**: Auto-pairs, surround, comentarios
+- **Snippets**: LuaSnip con snippets personalizados
 
 ## 🚀 Instalación
 
@@ -96,6 +97,27 @@ La primera vez se instalarán automáticamente todos los plugins. Espera a que t
 ### Buffers
 - `<Space>bd` - Cerrar buffer
 - `<Space>bo` - Cerrar otros buffers
+- `<Space>ba` - Cerrar todos los buffers
+- `<Space>bp` - Pin/unpin buffer
+
+### Splits y Ventanas
+- `<Space>sv` - Split vertical
+- `<Space>sh` - Split horizontal
+- `<Space>se` - Igualar splits
+- `<Space>sx` - Cerrar split
+
+### Terminal
+- `<Space>th` - Terminal horizontal
+- `<Space>tv` - Terminal vertical
+- `<Space>tt` - Terminal en nueva pestaña
+- `<Esc>` - Salir del modo terminal (en terminal)
+- `<Ctrl-h/j/k/l>` - Navegar desde terminal
+
+### Pestañas
+- `<Space>to` - Nueva pestaña
+- `<Space>tx` - Cerrar pestaña
+- `<Space>tn` - Siguiente pestaña
+- `<Space>tp` - Pestaña anterior
 
 ## 🎨 Personalización
 
@@ -117,6 +139,7 @@ lua/
     ├── git.lua        # Git integration
     ├── formatting.lua # Formato automático
     ├── treesitter.lua # Syntax highlighting
+    ├── snippets.lua   # Snippets personalizados
     └── editor.lua     # Herramientas de edición
 ```
 
