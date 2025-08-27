@@ -90,6 +90,9 @@ map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsea
 -- Save file
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
+-- Dismiss notifications
+map("n", "<leader>nd", "<cmd>NoiceDismiss<cr>", { desc = "Dismiss notifications" })
+
 -- Better indenting
 map("v", "<", "<gv")
 map("v", ">", ">gv")
@@ -118,6 +121,7 @@ vim.api.nvim_create_autocmd("User", {
       { "<leader>t", group = " Tab/Terminal" },
       { "<leader>w", group = " Window" },
       { "<leader>x", group = " Diagnostics" },
+      { "<leader>n", group = "󰒲 Notifications" },
       { "<leader>/", desc = "󰒬 Toggle comment" },
     })
   end,

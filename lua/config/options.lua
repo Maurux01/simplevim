@@ -24,6 +24,7 @@ opt.list = true
 opt.listchars = {
   space = "·",
   tab = "::",
+  trail = "",
   extends = ">",
   precedes = "<",
   nbsp = "␣"
