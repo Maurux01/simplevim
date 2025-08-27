@@ -114,8 +114,21 @@ return {
   {
     "folke/tokyonight.nvim",
     config = function()
-      -- Tema por defecto
-      vim.cmd([[colorscheme tokyonight]])
+      -- Cargar tema guardado o por defecto
+      local data_path = vim.fn.stdpath("data") .. "/theme_index.txt"
+      local themes = { "tokyonight", "catppuccin", "gruvbox", "kanagawa", "dracula", "onedark" }
+      local theme_idx = 1
+      
+      local file = io.open(data_path, "r")
+      if file then
+        local content = file:read("*n")
+        if content and content >= 1 and content <= #themes then
+          theme_idx = content
+        end
+        file:close()
+      end
+      
+      vim.cmd("colorscheme " .. themes[theme_idx])
       
       -- Comando para cambiar temas fácilmente
       vim.api.nvim_create_user_command("Theme", function(opts)
@@ -142,25 +155,37 @@ return {
         end,
       })
       
-      -- Atajo de teclado para cambiar tema rápido
+      -- Atajo de teclado para cambiar tema secuencial y persistente
       vim.keymap.set("n", "<leader>ct", function()
         local themes = { "tokyonight", "catppuccin", "gruvbox", "kanagawa", "dracula", "onedark" }
-        local current = vim.g.colors_name or "tokyonight"
-        local current_idx = 1
+        local data_path = vim.fn.stdpath("data") .. "/theme_index.txt"
         
-        for i, theme in ipairs(themes) do
-          if theme == current then
-            current_idx = i
-            break
+        -- Leer índice actual
+        local current_idx = 1
+        local file = io.open(data_path, "r")
+        if file then
+          local content = file:read("*n")
+          if content and content >= 1 and content <= #themes then
+            current_idx = content
           end
+          file:close()
         end
         
+        -- Siguiente tema
         local next_idx = (current_idx % #themes) + 1
         local next_theme = themes[next_idx]
         
+        -- Guardar índice
+        file = io.open(data_path, "w")
+        if file then
+          file:write(tostring(next_idx))
+          file:close()
+        end
+        
+        -- Aplicar tema
         vim.cmd("colorscheme " .. next_theme)
-        print("Tema: " .. next_theme)
-      end, { desc = "Cambiar tema" })
+        print("Theme: " .. next_theme .. " (" .. next_idx .. "/" .. #themes .. ")")
+      end, { desc = "Next theme" })
     end,
   },
 }
