@@ -36,12 +36,16 @@ if exist "%NVIM_CONFIG%" (
 )
 
 echo.
-echo 📦 Installing simplevim...
+echo 🧹 Cleaning previous Neovim installations...
 
-:: Remove any existing config completely
-if exist "%NVIM_CONFIG%" (
-    rmdir /s /q "%NVIM_CONFIG%" >nul 2>&1
+:: Remove all Neovim config and data directories
+if exist "%LOCALAPPDATA%\nvim" rmdir /s /q "%LOCALAPPDATA%\nvim" >nul 2>&1
+if exist "%LOCALAPPDATA%\nvim-data" rmdir /s /q "%LOCALAPPDATA%\nvim-data" >nul 2>&1
+if exist "%LOCALAPPDATA%\nvim.backup*" (
+    for /d %%i in ("%LOCALAPPDATA%\nvim.backup*") do rmdir /s /q "%%i" >nul 2>&1
 )
+
+echo 📦 Installing simplevim...
 
 :: Create fresh directory
 mkdir "%NVIM_CONFIG%" >nul 2>&1
@@ -61,11 +65,11 @@ echo.
 echo 🎉 SIMPLEVIM IS READY!
 echo.
 echo Next steps:
-echo 1. Open Neovim: nvim
-echo 2. Wait for plugins to install automatically
-echo 3. Restart Neovim
+echo 1. Neovim will open automatically to install plugins
+echo 2. Wait for plugins to install
+echo 3. Restart Neovim when installation completes
 echo 4. Install a Nerd Font for icons: https://nerdfonts.com
 echo.
-echo Enjoy your new Neovim setup! 🚀
+echo 🚀 Starting Neovim...
 echo.
-pause
+nvim

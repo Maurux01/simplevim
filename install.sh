@@ -50,12 +50,20 @@ if [ -d "$NVIM_CONFIG" ]; then
 fi
 
 echo
-echo -e "${BLUE}📦 Installing simplevim...${NC}"
+echo -e "${YELLOW}🧹 Cleaning previous Neovim installations...${NC}"
 
-# Remove any existing config completely
-if [ -d "$NVIM_CONFIG" ]; then
-    rm -rf "$NVIM_CONFIG"
-fi
+# Remove all Neovim config and data directories
+rm -rf ~/.config/nvim
+rm -rf ~/.local/state/nvim  
+rm -rf ~/.local/share/nvim
+rm -rf ~/.config/nvim.backup*
+
+# Remove Flatpak Neovim data (if exists)
+rm -rf ~/.var/app/io.neovim.nvim/config/nvim 2>/dev/null
+rm -rf ~/.var/app/io.neovim.nvim/data/nvim 2>/dev/null
+rm -rf ~/.var/app/io.neovim.nvim/.local/state/nvim 2>/dev/null
+
+echo -e "${BLUE}📦 Installing simplevim...${NC}"
 
 # Create fresh config directory
 mkdir -p "$NVIM_CONFIG"
@@ -72,10 +80,11 @@ echo
 echo -e "${PURPLE}🎉 SIMPLEVIM IS READY!${NC}"
 echo
 echo -e "${CYAN}Next steps:${NC}"
-echo -e "${YELLOW}1. Open Neovim: nvim${NC}"
-echo -e "${YELLOW}2. Wait for plugins to install automatically${NC}"
-echo -e "${YELLOW}3. Restart Neovim${NC}"
+echo -e "${YELLOW}1. Neovim will open automatically to install plugins${NC}"
+echo -e "${YELLOW}2. Wait for plugins to install${NC}"
+echo -e "${YELLOW}3. Restart Neovim when installation completes${NC}"
 echo -e "${YELLOW}4. Install a Nerd Font for icons: https://nerdfonts.com${NC}"
 echo
-echo -e "${GREEN}Enjoy your new Neovim setup! 🚀${NC}"
+echo -e "${GREEN}🚀 Starting Neovim...${NC}"
 echo
+nvim
