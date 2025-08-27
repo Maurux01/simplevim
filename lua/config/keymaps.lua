@@ -98,7 +98,7 @@ map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 map("n", "<leader>w", "<cmd>w<cr>", { desc = "Save file" })
 map("n", "<leader>wn", "<cmd>enew<cr>", { desc = "New file" })
 map("n", "<leader>wd", function()
-  local file = vim.fn.expand("%”)
+  local file = vim.fn.expand("%")
   if file ~= "" then
     vim.fn.delete(file)
     vim.cmd("bdelete!")
