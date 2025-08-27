@@ -52,7 +52,7 @@ return {
         s("type", { t("type "), i(1, "Name"), t(" = "), i(2), t(";") }),
         s("enum", { t("enum "), i(1, "Name"), t({" {", "  "}), i(2), t({"", "}"}) }),
         s("class", { t("class "), i(1, "Name"), t({" {", "  constructor("}), i(2), t({") {", "    "}), i(3), t({"", "  }", "}"}) }),
-        s("generic", { t("<"), i(1, "T"), t(">") }),
+        s("generic", { t("<"), i(1, "T"), t(">") })
       })
 
       -- React
