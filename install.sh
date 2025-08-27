@@ -34,20 +34,7 @@ else
     NVIM_CONFIG="$HOME/.config/nvim"
 fi
 
-BACKUP_DIR="${NVIM_CONFIG}.backup.$(date +%Y%m%d_%H%M%S)"
 
-# Backup existing config
-if [ -d "$NVIM_CONFIG" ]; then
-    echo -e "${YELLOW}📁 Existing config found at: $NVIM_CONFIG${NC}"
-    echo -e "${BLUE}💾 Creating backup at: $BACKUP_DIR${NC}"
-    
-    if mv "$NVIM_CONFIG" "$BACKUP_DIR"; then
-        echo -e "${GREEN}✅ Backup created successfully!${NC}"
-    else
-        echo -e "${RED}❌ Failed to backup existing config${NC}"
-        exit 1
-    fi
-fi
 
 echo
 echo -e "${YELLOW}🧹 Cleaning previous Neovim installations...${NC}"
@@ -56,7 +43,7 @@ echo -e "${YELLOW}🧹 Cleaning previous Neovim installations...${NC}"
 rm -rf ~/.config/nvim
 rm -rf ~/.local/state/nvim  
 rm -rf ~/.local/share/nvim
-rm -rf ~/.config/nvim.backup*
+
 
 # Remove Flatpak Neovim data (if exists)
 rm -rf ~/.var/app/io.neovim.nvim/config/nvim 2>/dev/null
