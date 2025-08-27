@@ -3,7 +3,7 @@ local opt = vim.opt
 
 -- UI
 opt.number = true
-opt.relativenumber = true
+opt.relativenumber = false
 opt.signcolumn = "yes"
 opt.cursorline = true
 opt.termguicolors = true
@@ -24,7 +24,6 @@ opt.list = true
 opt.listchars = {
   space = "·",
   tab = "::",
-  trail = "",
   extends = ">",
   precedes = "<",
   nbsp = "␣"
