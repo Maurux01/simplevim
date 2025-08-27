@@ -1,47 +1,47 @@
 # 🚀 simplevim
-**fast simple cute nvim** - Configuración mínima, moderna y funcional de Neovim
+**fast simple cute nvim** - Minimal, modern and functional Neovim configuration
+![alt text](image.png)
+## ✨ Features
 
-## ✨ Características
+- ⚡ **Ultra fast**: Loads in < 0.3 seconds
+- 🎨 **Beautiful**: Tokyo Night theme with modern UI
+- 🧠 **Smart**: LSP, autocompletion, auto-formatting
+- 📁 **Functional**: File explorer, search, git integration
+- 🔧 **Minimal**: Only essentials, no bloat
 
-- ⚡ **Ultra rápido**: Carga en < 0.3 segundos
-- 🎨 **Hermoso**: Tema Tokyo Night con UI moderna
-- 🧠 **Inteligente**: LSP, autocompletado, formato automático
-- 📁 **Funcional**: Explorador de archivos, búsqueda, git integrado
-- 🔧 **Mínimo**: Solo lo esencial, sin bloat
+## 📦 Included plugins
 
-## 📦 Plugins incluidos
-
-- **Plugin Manager**: `lazy.nvim` (el más rápido)
-- **Temas**: 6 temas oscuros (Tokyo Night, Catppuccin, Gruvbox, Kanagawa, Dracula, OneDark)
+- **Plugin Manager**: `lazy.nvim` (fastest)
+- **Themes**: 6 dark themes (Tokyo Night, Catppuccin, Gruvbox, Kanagawa, Dracula, OneDark)
 - **LSP**: `mason.nvim` + `lspconfig` (Lua, Python, TypeScript)
-- **Autocompletado**: `nvim-cmp` + `LuaSnip` + `friendly-snippets`
-- **Explorador**: `neo-tree.nvim` (con íconos)
-- **Búsqueda**: `telescope.nvim` (archivos y texto)
+- **Autocompletion**: `nvim-cmp` + `LuaSnip` + `friendly-snippets`
+- **Explorer**: `neo-tree.nvim` (with icons)
+- **Search**: `telescope.nvim` (files and text)
 - **UI**: `lualine.nvim` + `bufferline.nvim` + `alpha-nvim`
-- **Git**: `gitsigns.nvim` (cambios en el margen)
-- **Formato**: `conform.nvim` (automático al guardar)
-- **Syntax**: `nvim-treesitter` (highlighting avanzado)
-- **Edición**: Auto-pairs, surround, comentarios
-- **Snippets**: LuaSnip con snippets personalizados
-- **Animaciones**: Cursor animado, scroll suave, indent guides
-- **Which-key**: Guía visual de atajos de teclado
-- **Whitespace**: Visualización de espacios y tabs
+- **Git**: `gitsigns.nvim` (changes in gutter)
+- **Formatting**: `conform.nvim` (auto on save)
+- **Syntax**: `nvim-treesitter` (advanced highlighting)
+- **Editing**: Auto-pairs, surround, comments
+- **Snippets**: LuaSnip with custom snippets
+- **Animations**: Animated cursor, smooth scroll, indent guides
+- **Which-key**: Visual guide for keybindings
+- **Whitespace**: Visualization of spaces and tabs
 
-## 🚀 Instalación
+## 🚀 Installation
 
-### 1. Requisitos
+### 1. Requirements
 - Neovim 0.9+
 - Git
-- Node.js (para LSP de TypeScript)
-- Python (para LSP de Python)
+- Node.js (for TypeScript LSP)
+- Python (for Python LSP)
 
-### 2. Instalación automática
+### 2. Automatic installation
 
-**Opción 1: Instalador automático (Recomendado)**
+**Option 1: Automatic installer (Recommended)**
 
 ```bash
-# Clonar el repositorio
-git clone https://github.com/tu-usuario/simplevim.git
+# Clone the repository
+git clone https://github.com/Maurux01/simplevim.git
 cd simplevim
 
 # Windows
@@ -52,121 +52,121 @@ chmod +x install.sh
 ./install.sh
 ```
 
-**Opción 2: Instalación manual**
+**Option 2: Manual installation**
 
 **Windows:**
 ```cmd
-# Respaldar configuración existente (opcional)
+# Backup existing config (optional)
 ren %LOCALAPPDATA%\nvim %LOCALAPPDATA%\nvim.backup
 
-# Clonar simplevim
-git clone https://github.com/tu-usuario/simplevim.git %LOCALAPPDATA%\nvim
+# Clone simplevim
+git clone https://github.com/Maurux01/simplevim.git %LOCALAPPDATA%\nvim
 ```
 
 **Linux/macOS:**
 ```bash
-# Respaldar configuración existente (opcional)
+# Backup existing config (optional)
 mv ~/.config/nvim ~/.config/nvim.backup
 
-# Clonar simplevim
-git clone https://github.com/tu-usuario/simplevim.git ~/.config/nvim
+# Clone simplevim
+git clone https://github.com/Maurux01/simplevim.git ~/.config/nvim
 ```
 
-### 3. Primera ejecución
+### 3. First run
 
 ```bash
 nvim
 ```
 
-La primera vez se instalarán automáticamente todos los plugins. Espera a que termine y reinicia Neovim.
+All plugins will be installed automatically on first run. Wait for it to finish and restart Neovim.
 
-## ⌨️ Atajos de teclado principales
+## ⌨️ Main keybindings
 
 ### General
-- `<Space>` - Tecla líder (muestra which-key después de 300ms)
-- `<Ctrl-s>` - Guardar archivo
-- `<Esc>` - Limpiar búsqueda
+- `<Space>` - Leader key (shows which-key after 300ms)
+- `<Ctrl-s>` - Save file
+- `<Esc>` - Clear search
 
-### Navegación
-- `<Ctrl-h/j/k/l>` - Moverse entre ventanas
-- `<Shift-h/l>` - Cambiar entre buffers
-- `<Ctrl-Shift-j/k>` - Mover líneas arriba/abajo
+### Navigation
+- `<Ctrl-h/j/k/l>` - Move between windows
+- `<Shift-h/l>` - Switch between buffers
+- `<Ctrl-Shift-j/k>` - Move lines up/down
 
-### Explorador de archivos
-- `<Space>e` - Abrir/cerrar Neo-tree
+### File explorer
+- `<Space>e` - Open/close Neo-tree
 
-### Búsqueda (Telescope)
-- `<Space>ff` - Buscar archivos
-- `<Space>fg` - Buscar texto
-- `<Space>fb` - Buscar buffers
-- `<Space>fr` - Archivos recientes
+### Search (Telescope)
+- `<Space>ff` - Find files
+- `<Space>fg` - Find text
+- `<Space>fb` - Find buffers
+- `<Space>fr` - Recent files
 
 ### LSP
-- `gd` - Ir a definición
-- `K` - Mostrar documentación
-- `<Space>rn` - Renombrar
-- `<Space>ca` - Acciones de código
-- `<Space>f` - Formatear código
+- `gd` - Go to definition
+- `K` - Show documentation
+- `<Space>rn` - Rename
+- `<Space>ca` - Code actions
+- `<Space>f` - Format code
 
 ### Git
-- `]h` / `[h` - Siguiente/anterior cambio
+- `]h` / `[h` - Next/previous change
 - `<Space>ghs` - Stage hunk
 - `<Space>ghr` - Reset hunk
 - `<Space>ghp` - Preview hunk
 
 ### Buffers
-- `<Space>bd` - Cerrar buffer
-- `<Space>bo` - Cerrar otros buffers
-- `<Space>ba` - Cerrar todos los buffers
+- `<Space>bd` - Close buffer
+- `<Space>bo` - Close other buffers
+- `<Space>ba` - Close all buffers
 - `<Space>bp` - Pin/unpin buffer
 
-### Control de Ventanas
-**Navegación:**
-- `<Ctrl-h/j/k/l>` - Moverse entre ventanas
-- `<Alt-h/j/k/l>` - Navegación alternativa
+### Window Control
+**Navigation:**
+- `<Ctrl-h/j/k/l>` - Move between windows
+- `<Alt-h/j/k/l>` - Alternative navigation
 
-**Crear/Cerrar:**
-- `<Space>wv` - Split vertical
-- `<Space>wh` - Split horizontal
-- `<Space>wx` - Cerrar ventana actual
-- `<Space>wo` - Cerrar otras ventanas
-- `<Space>wm` - Maximizar/restaurar ventana
+**Create/Close:**
+- `<Space>wv` - Vertical split
+- `<Space>wh` - Horizontal split
+- `<Space>wx` - Close current window
+- `<Space>wo` - Close other windows
+- `<Space>wm` - Maximize/restore window
 
-**Redimensionar:**
-- `<Shift-Flechas>` - Redimensionar rápido (±5)
-- `<Ctrl-Flechas>` - Redimensionar lento (±2)
-- `<Space>w+/-` - Altura ±10
-- `<Space>w</>` - Ancho ±10
-- `<Space>we` - Igualar tamaños
+**Resize:**
+- `<Shift-Arrows>` - Fast resize (±5)
+- `<Ctrl-Arrows>` - Slow resize (±2)
+- `<Space>w+/-` - Height ±10
+- `<Space>w</>` - Width ±10
+- `<Space>we` - Equal sizes
 
-**Mover ventanas:**
-- `<Space>wH/J/K/L` - Mover ventana a lado/abajo/arriba/derecha
+**Move windows:**
+- `<Space>wH/J/K/L` - Move window left/down/up/right
 
-**Compatibilidad (legacy):**
-- `<Space>sv/sh/se/sx` - Splits clásicos
+**Compatibility (legacy):**
+- `<Space>sv/sh/se/sx` - Classic splits
 
 ### Terminal
-- `<Space>th` - Terminal horizontal
-- `<Space>tv` - Terminal vertical
-- `<Space>tt` - Terminal en nueva pestaña
-- `<Esc>` - Salir del modo terminal (en terminal)
-- `<Ctrl-h/j/k/l>` - Navegar desde terminal
+- `<Space>th` - Horizontal terminal
+- `<Space>tv` - Vertical terminal
+- `<Space>tt` - Terminal in new tab
+- `<Esc>` - Exit terminal mode (in terminal)
+- `<Ctrl-h/j/k/l>` - Navigate from terminal
 
-### Pestañas
-- `<Space>to` - Nueva pestaña
-- `<Space>tx` - Cerrar pestaña
-- `<Space>tn` - Siguiente pestaña
-- `<Space>tp` - Pestaña anterior
+### Tabs
+- `<Space>to` - New tab
+- `<Space>tx` - Close tab
+- `<Space>tn` - Next tab
+- `<Space>tp` - Previous tab
 
-### Visualización
-- Espacios mostrados como puntos (·)
-- Tabs mostrados como dos puntos (::)
-- Cursor con animación de cola colorida
-- Scroll suave con animaciones
-- Indent guides animados
+### Visualization
+- Spaces shown as dots (·)
+- Tabs shown as double dots (::)
+- Cursor with colorful tail animation
+- Smooth scroll with animations
+- Animated indent guides
 
-### Temas
-- `<Space>ct` - Cambiar tema (cicla entre todos)
+### Themes
+- `<Space>ct` - Change theme (cycle through all)
 - `:Theme tokyo` - Tokyo Night
 - `:Theme cat` - Catppuccin Mocha
 - `:Theme gruvbox` - Gruvbox Hard
@@ -174,79 +174,79 @@ La primera vez se instalarán automáticamente todos los plugins. Espera a que t
 - `:Theme dracula` - Dracula
 - `:Theme onedark` - One Dark
 
-## 🎨 Personalización
+## 🎨 Customization
 
-La configuración está organizada en módulos:
+The configuration is organized in modules:
 
 ```
 lua/
 ├── config/
-│   ├── options.lua    # Opciones de Neovim + whitespace
-│   ├── keymaps.lua    # Atajos de teclado + which-key
-│   └── lazy.lua       # Configuración de lazy.nvim
+│   ├── options.lua    # Neovim options + whitespace
+│   ├── keymaps.lua    # Keybindings + which-key
+│   └── lazy.lua       # lazy.nvim configuration
 └── plugins/
     ├── animations.lua # Cursor, scroll, which-key, indent
-    ├── colorscheme.lua # Tema
+    ├── colorscheme.lua # Theme
     ├── lsp.lua        # Language Server Protocol
-    ├── cmp.lua        # Autocompletado
-    ├── telescope.lua  # Búsqueda
-    ├── neo-tree.lua   # Explorador
-    ├── ui.lua         # Interfaz + colores cursor
+    ├── cmp.lua        # Autocompletion
+    ├── telescope.lua  # Search
+    ├── neo-tree.lua   # Explorer
+    ├── ui.lua         # Interface + cursor colors
     ├── git.lua        # Git integration
-    ├── formatting.lua # Formato automático
+    ├── formatting.lua # Auto formatting
     ├── treesitter.lua # Syntax highlighting
-    ├── snippets.lua   # Snippets personalizados
-    └── editor.lua     # Herramientas de edición
+    ├── snippets.lua   # Custom snippets
+    └── editor.lua     # Editing tools
 ```
 
-### Cambiar tema
-**Opción 1: Comando rápido**
+### Change theme
+**Option 1: Quick command**
 ```vim
 :Theme cat        " Catppuccin
 :Theme gruvbox    " Gruvbox
 :Theme kanagawa   " Kanagawa
 :Theme dracula    " Dracula
 :Theme onedark    " One Dark
-:Theme tokyo      " Tokyo Night (por defecto)
+:Theme tokyo      " Tokyo Night (default)
 ```
 
-**Opción 2: Atajo de teclado**
-- `<Space>ct` - Cicla entre todos los temas
+**Option 2: Keyboard shortcut**
+- `<Space>ct` - Cycle through all themes
 
-**Opción 3: Cambiar tema por defecto**
-Edita `lua/plugins/colorscheme.lua` y cambia la línea:
+**Option 3: Change default theme**
+Edit `lua/plugins/colorscheme.lua` and change the line:
 ```lua
 vim.cmd([[colorscheme tokyonight]])
 ```
 
-### Agregar LSP para otros lenguajes
-Edita `lua/plugins/lsp.lua` y agrega el servidor en `ensure_installed`.
+### Add LSP for other languages
+Edit `lua/plugins/lsp.lua` and add the server to `ensure_installed`.
 
-## 🔧 Comandos útiles
+## 🔧 Useful commands
 
-- `:Lazy` - Gestionar plugins
-- `:Mason` - Instalar LSP servers
-- `:checkhealth` - Verificar configuración
-- `:ConformInfo` - Info de formatters
+- `:Lazy` - Manage plugins
+- `:Mason` - Install LSP servers
+- `:checkhealth` - Check configuration
+- `:ConformInfo` - Formatter info
 
-## 🐛 Solución de problemas
+## 🐛 Troubleshooting
 
-### Los íconos no se ven bien
-Instala una Nerd Font: https://www.nerdfonts.com/
+### Icons don't look right
+Install a Nerd Font: https://www.nerdfonts.com/
 
-### LSP no funciona
+### LSP doesn't work
 ```vim
 :Mason
 ```
-Instala el servidor correspondiente (lua_ls, pyright, tsserver, etc.)
+Install the corresponding server (lua_ls, pyright, tsserver, etc.)
 
-### Formato automático no funciona
-Verifica que tengas los formatters instalados:
+### Auto formatting doesn't work
+Verify you have the formatters installed:
 ```bash
-npm install -g prettier  # Para JS/TS/JSON/HTML/CSS
-pip install black isort  # Para Python
+npm install -g prettier  # For JS/TS/JSON/HTML/CSS
+pip install black isort  # For Python
 ```
 
-## 📄 Licencia
+## 📄 License
 
-MIT License - Úsalo como quieras 🎉
+MIT License - Use it however you want 🎉

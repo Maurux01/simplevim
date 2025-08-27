@@ -96,21 +96,36 @@ return {
 
   -- Comments
   {
+    "numToStr/Comment.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "JoosepAlviste/nvim-ts-context-commentstring",
+    },
+    config = function()
+      require("Comment").setup({
+        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+        mappings = {
+          basic = true,
+          extra = true,
+        },
+      })
+    end,
+    keys = {
+      { "gcc", desc = "Comment line" },
+      { "gc", desc = "Comment", mode = { "n", "v" } },
+      { "gbc", desc = "Block comment line" },
+      { "gb", desc = "Block comment", mode = { "n", "v" } },
+      { "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<cr>", desc = "Toggle comment" },
+      { "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", desc = "Toggle comment", mode = "v" },
+      { "<C-/>", "<cmd>lua require('Comment.api').toggle.linewise.current()<cr>", desc = "Toggle comment" },
+      { "<C-/>", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", desc = "Toggle comment", mode = "v" },
+    },
+  },
+  {
     "JoosepAlviste/nvim-ts-context-commentstring",
     lazy = true,
     opts = {
       enable_autocmd = false,
-    },
-  },
-  {
-    "echasnovski/mini.comment",
-    event = "VeryLazy",
-    opts = {
-      options = {
-        custom_commentstring = function()
-          return require("ts_context_commentstring.internal").calculate_commentstring() or vim.bo.commentstring
-        end,
-      },
     },
   },
 }

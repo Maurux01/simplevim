@@ -108,16 +108,17 @@ vim.api.nvim_create_autocmd("User", {
   pattern = "VeryLazy",
   callback = function()
     local wk = require("which-key")
-    wk.register({
-      ["<leader>b"] = { name = "󰓩 Buffer" },
-      ["<leader>c"] = { name = " Code" },
-      ["<leader>f"] = { name = " Find" },
-      ["<leader>g"] = { name = " Git" },
-      ["<leader>gh"] = { name = "󰊢 Hunks" },
-      ["<leader>s"] = { name = "󰓩 Split" },
-      ["<leader>t"] = { name = " Tab/Terminal" },
-      ["<leader>w"] = { name = " Window" },
-      ["<leader>x"] = { name = " Diagnostics" },
+    wk.add({
+      { "<leader>b", group = "󰓩 Buffer" },
+      { "<leader>c", group = " Code" },
+      { "<leader>f", group = " Find" },
+      { "<leader>g", group = " Git" },
+      { "<leader>gh", group = "󰊢 Hunks" },
+      { "<leader>s", group = "󰓩 Split" },
+      { "<leader>t", group = " Tab/Terminal" },
+      { "<leader>w", group = " Window" },
+      { "<leader>x", group = " Diagnostics" },
+      { "<leader>/", desc = "󰒬 Toggle comment" },
     })
   end,
 })

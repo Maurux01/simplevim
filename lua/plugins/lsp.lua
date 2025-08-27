@@ -17,13 +17,16 @@ return {
       "mason.nvim",
       "neovim/nvim-lspconfig",
     },
-    opts = {
-      ensure_installed = {
-        "lua_ls",
-        "pyright",
-        "typescript-language-server",
-      },
-    },
+    config = function()
+      require("mason-lspconfig").setup({
+        ensure_installed = {
+          "lua_ls",
+          "pyright",
+          "ts_ls",
+        },
+        automatic_installation = true,
+      })
+    end,
   },
   {
     "neovim/nvim-lspconfig",
