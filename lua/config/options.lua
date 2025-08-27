@@ -19,6 +19,17 @@ opt.wrap = false
 opt.scrolloff = 8
 opt.sidescrolloff = 8
 
+-- Whitespace visualization
+opt.list = true
+opt.listchars = {
+  space = "·",
+  tab = "::",
+  trail = "",
+  extends = ">",
+  precedes = "<",
+  nbsp = "␣"
+}
+
 -- Search
 opt.ignorecase = true
 opt.smartcase = true

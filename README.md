@@ -12,7 +12,7 @@
 ## 📦 Plugins incluidos
 
 - **Plugin Manager**: `lazy.nvim` (el más rápido)
-- **Tema**: `tokyonight.nvim` (oscuro y moderno)
+- **Temas**: 6 temas oscuros (Tokyo Night, Catppuccin, Gruvbox, Kanagawa, Dracula, OneDark)
 - **LSP**: `mason.nvim` + `lspconfig` (Lua, Python, TypeScript)
 - **Autocompletado**: `nvim-cmp` + `LuaSnip` + `friendly-snippets`
 - **Explorador**: `neo-tree.nvim` (con íconos)
@@ -23,6 +23,9 @@
 - **Syntax**: `nvim-treesitter` (highlighting avanzado)
 - **Edición**: Auto-pairs, surround, comentarios
 - **Snippets**: LuaSnip con snippets personalizados
+- **Animaciones**: Cursor animado, scroll suave, indent guides
+- **Which-key**: Guía visual de atajos de teclado
+- **Whitespace**: Visualización de espacios y tabs
 
 ## 🚀 Instalación
 
@@ -80,14 +83,14 @@ La primera vez se instalarán automáticamente todos los plugins. Espera a que t
 ## ⌨️ Atajos de teclado principales
 
 ### General
-- `<Space>` - Tecla líder
+- `<Space>` - Tecla líder (muestra which-key después de 300ms)
 - `<Ctrl-s>` - Guardar archivo
 - `<Esc>` - Limpiar búsqueda
 
 ### Navegación
 - `<Ctrl-h/j/k/l>` - Moverse entre ventanas
 - `<Shift-h/l>` - Cambiar entre buffers
-- `<Alt-j/k>` - Mover líneas arriba/abajo
+- `<Ctrl-Shift-j/k>` - Mover líneas arriba/abajo
 
 ### Explorador de archivos
 - `<Space>e` - Abrir/cerrar Neo-tree
@@ -117,11 +120,30 @@ La primera vez se instalarán automáticamente todos los plugins. Espera a que t
 - `<Space>ba` - Cerrar todos los buffers
 - `<Space>bp` - Pin/unpin buffer
 
-### Splits y Ventanas
-- `<Space>sv` - Split vertical
-- `<Space>sh` - Split horizontal
-- `<Space>se` - Igualar splits
-- `<Space>sx` - Cerrar split
+### Control de Ventanas
+**Navegación:**
+- `<Ctrl-h/j/k/l>` - Moverse entre ventanas
+- `<Alt-h/j/k/l>` - Navegación alternativa
+
+**Crear/Cerrar:**
+- `<Space>wv` - Split vertical
+- `<Space>wh` - Split horizontal
+- `<Space>wx` - Cerrar ventana actual
+- `<Space>wo` - Cerrar otras ventanas
+- `<Space>wm` - Maximizar/restaurar ventana
+
+**Redimensionar:**
+- `<Shift-Flechas>` - Redimensionar rápido (±5)
+- `<Ctrl-Flechas>` - Redimensionar lento (±2)
+- `<Space>w+/-` - Altura ±10
+- `<Space>w</>` - Ancho ±10
+- `<Space>we` - Igualar tamaños
+
+**Mover ventanas:**
+- `<Space>wH/J/K/L` - Mover ventana a lado/abajo/arriba/derecha
+
+**Compatibilidad (legacy):**
+- `<Space>sv/sh/se/sx` - Splits clásicos
 
 ### Terminal
 - `<Space>th` - Terminal horizontal
@@ -136,6 +158,22 @@ La primera vez se instalarán automáticamente todos los plugins. Espera a que t
 - `<Space>tn` - Siguiente pestaña
 - `<Space>tp` - Pestaña anterior
 
+### Visualización
+- Espacios mostrados como puntos (·)
+- Tabs mostrados como dos puntos (::)
+- Cursor con animación de cola colorida
+- Scroll suave con animaciones
+- Indent guides animados
+
+### Temas
+- `<Space>ct` - Cambiar tema (cicla entre todos)
+- `:Theme tokyo` - Tokyo Night
+- `:Theme cat` - Catppuccin Mocha
+- `:Theme gruvbox` - Gruvbox Hard
+- `:Theme kanagawa` - Kanagawa Wave
+- `:Theme dracula` - Dracula
+- `:Theme onedark` - One Dark
+
 ## 🎨 Personalización
 
 La configuración está organizada en módulos:
@@ -143,16 +181,17 @@ La configuración está organizada en módulos:
 ```
 lua/
 ├── config/
-│   ├── options.lua    # Opciones de Neovim
-│   ├── keymaps.lua    # Atajos de teclado
+│   ├── options.lua    # Opciones de Neovim + whitespace
+│   ├── keymaps.lua    # Atajos de teclado + which-key
 │   └── lazy.lua       # Configuración de lazy.nvim
 └── plugins/
+    ├── animations.lua # Cursor, scroll, which-key, indent
     ├── colorscheme.lua # Tema
     ├── lsp.lua        # Language Server Protocol
     ├── cmp.lua        # Autocompletado
     ├── telescope.lua  # Búsqueda
     ├── neo-tree.lua   # Explorador
-    ├── ui.lua         # Interfaz (lualine, bufferline, alpha)
+    ├── ui.lua         # Interfaz + colores cursor
     ├── git.lua        # Git integration
     ├── formatting.lua # Formato automático
     ├── treesitter.lua # Syntax highlighting
@@ -161,7 +200,24 @@ lua/
 ```
 
 ### Cambiar tema
-Edita `lua/plugins/colorscheme.lua` y cambia `tokyonight` por otro tema como `catppuccin`.
+**Opción 1: Comando rápido**
+```vim
+:Theme cat        " Catppuccin
+:Theme gruvbox    " Gruvbox
+:Theme kanagawa   " Kanagawa
+:Theme dracula    " Dracula
+:Theme onedark    " One Dark
+:Theme tokyo      " Tokyo Night (por defecto)
+```
+
+**Opción 2: Atajo de teclado**
+- `<Space>ct` - Cicla entre todos los temas
+
+**Opción 3: Cambiar tema por defecto**
+Edita `lua/plugins/colorscheme.lua` y cambia la línea:
+```lua
+vim.cmd([[colorscheme tokyonight]])
+```
 
 ### Agregar LSP para otros lenguajes
 Edita `lua/plugins/lsp.lua` y agrega el servidor en `ensure_installed`.

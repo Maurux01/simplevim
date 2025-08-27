@@ -113,7 +113,7 @@ return {
         "      ⣻⣿⣿⣄   ⠈⠛⣿⣿⣿⣷⣿⣿⣿⣿⣿⣿⡟ ⠫⣿⣿⠆     ",
         "       ⠛⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⣀⣠⣤⣾⡿⠃     ",
         "                                   ",
-        "        🚀 S I M P L E V I M 🚀        ",
+        "           S I M P L E V I M        ",
         "          fast • simple • cute         ",
         "                                   ",
       }
@@ -145,5 +145,31 @@ return {
       dashboard.opts.opts.noautocmd = true
       alpha.setup(dashboard.opts)
     end,
+  },
+
+  -- Configuración de colores para cursor animado
+  {
+    "folke/tokyonight.nvim",
+    opts = {
+      on_colors = function(colors)
+        colors.smoothcursor_red = "#f7768e"
+        colors.smoothcursor_orange = "#ff9e64"
+        colors.smoothcursor_yellow = "#e0af68"
+        colors.smoothcursor_green = "#9ece6a"
+        colors.smoothcursor_aqua = "#73daca"
+        colors.smoothcursor_blue = "#7aa2f7"
+        colors.smoothcursor_purple = "#bb9af7"
+      end,
+      on_highlights = function(hl, c)
+        hl.SmoothCursor = { fg = c.fg_gutter }
+        hl.SmoothCursorRed = { fg = c.smoothcursor_red }
+        hl.SmoothCursorOrange = { fg = c.smoothcursor_orange }
+        hl.SmoothCursorYellow = { fg = c.smoothcursor_yellow }
+        hl.SmoothCursorGreen = { fg = c.smoothcursor_green }
+        hl.SmoothCursorAqua = { fg = c.smoothcursor_aqua }
+        hl.SmoothCursorBlue = { fg = c.smoothcursor_blue }
+        hl.SmoothCursorPurple = { fg = c.smoothcursor_purple }
+      end,
+    },
   },
 }

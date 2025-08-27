@@ -21,7 +21,7 @@ return {
       ensure_installed = {
         "lua_ls",
         "pyright",
-        "tsserver",
+        "typescript-language-server",
       },
     },
   },
@@ -71,7 +71,7 @@ return {
         capabilities = capabilities,
       })
 
-      lspconfig.tsserver.setup({
+      lspconfig.ts_ls.setup({
         capabilities = capabilities,
       })
     end,
