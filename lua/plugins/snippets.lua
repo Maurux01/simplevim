@@ -33,18 +33,18 @@ return {
         s("cl", { t("console.log("), i(1), t(");") }),
         s("ce", { t("console.error("), i(1), t(");") }),
         s("cw", { t("console.warn("), i(1), t(");") }),
-        s("af", { t("const "), i(1, "name"), t(" = ("), i(2), t(") => {"), t({"\n", "  "}), i(0), t({"\n", "};"}) }),
-        s("fn", { t("function "), i(1, "name"), t("("), i(2), t(") {"), t({"\n", "  "}), i(0), t({"\n", "}"}) }),
+        s("af", { t("const "), i(1, "name"), t(" = ("), i(2), t(") => {"), t({"\n", "  "}), i(0), t({"\n", "};") }),
+        s("fn", { t("function "), i(1, "name"), t("("), i(2), t(") {"), t({"\n", "  "}), i(0), t({"\n", "}") }),
         s("imp", { t("import "), i(1), t(" from '"), i(2), t("';") }),
         s("impd", { t("import { "), i(1), t(" } from '"), i(2), t("';") }),
         s("exp", { t("export default "), i(1), t(";") }),
         s("expn", { t("export const "), i(1), t(" = "), i(2), t(";") }),
-        s("try", { t({"try {", "  "}), i(1), t({"\n"}), t("} catch ("), i(2, "error"), t({") {", "  "}), i(3), t({"\n"}) })),
-        s("async", { t("async "), i(1, "function"), t("("), i(2), t(") {"), t({"\n", "  "}), i(0), t({"\n", "}"}) }),
+        s("try", { t({"try {", "  "}), i(1), t({"\n"}), t("} catch ("), i(2, "error"), t({") {", "  "}), i(3), t({"\n"}) }),
+        s("async", { t("async "), i(1, "function"), t("("), i(2), t(") {"), t({"\n", "  "}), i(0), t({"\n", "}") }),
         s("await", { t("await "), i(1), t(";") }),
-        s("promise", { t("new Promise((resolve, reject) => {"), t({"\n", "  "}), i(1), t({"\n"});"}) }),
+        s("promise", { t("new Promise((resolve, reject) => {"), t({"\n", "  "}), i(1), t({"\n"}), t("});") }),
         s("timeout", { t("setTimeout(() => {"), t({"\n", "  "}), i(1), t("}, "), i(2, "1000"), t(");") }),
-        s("interval", { t("setInterval(() => {"), t({"\n", "  "}), i(1), t("}, "), i(2, "1000"), t(");") }),
+        s("interval", { t("setInterval(() => {"), t({"\n", "  "}), i(1), t("}, "), i(2, "1000"), t(");") })
       })
 
       -- ls.add_snippets("typescript", {
