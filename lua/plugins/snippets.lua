@@ -33,12 +33,11 @@ return {
         s("cl", { t("console.log("), i(1), t(");") }),
         s("ce", { t("console.error("), i(1), t(");") }),
         s("cw", { t("console.warn("), i(1), t(");") }),
-       
 })
-        s("imp", { t("import "), i(1), t(" from '"), i(2), t("';") }),
-        s("impd", { t("import { "), i(1), t(" } from '"), i(2), t("';") }),
+        s("imp", { t("import "), i(1), t(" from '"), i(2), t("';") })
+        s("impd", { t("import { "), i(1), t(" } from '"), i(2), t("';") })
         s("exp", { t("export default "), i(1), t(";") }),
-        s("expn", { t("export const "), i(1), t(" = "), i(2), t(";") }),
+        s("expn", { t("export const "), i(1), t(" = "), i(2), t(";") })
         s("try", { t({"try {", "  "}), i(1), t({
 "\n"}), t("} catch ("), i(2, "error"), t({") {", "  "}), i(3), t({
 "\n"})
