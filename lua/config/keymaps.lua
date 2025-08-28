@@ -98,7 +98,7 @@ map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 map("n", "<leader>w", "<cmd>w<cr>", { desc = "Save file" })
 map("n", "<leader>wn", "<cmd>enew<cr>", { desc = "New file" })
 map("n", "<leader>wd", function()
-  local file = vim.fn.expand("%")
+  local file = vim.fn.expand("% ")
   if file ~= "" then
     vim.fn.delete(file)
     vim.cmd("bdelete!")
@@ -131,7 +131,8 @@ map("v", ">", ">gv")
 map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
 -- Zen mode
-map("n", "<leader>z", "<cmd>ZenMode<cr>", { desc = "Zen mode" })
+map("n", "<leader>zz", "<cmd>ZenMode<cr>", { desc = "Zen mode" })
+map("n", "<leader>zt", "<cmd>Twilight<cr>", { desc = "Twilight" })
 
 -- Tabs
 map("n", "<leader>to", "<cmd>tabnew<cr>", { desc = "New tab" })
@@ -156,7 +157,7 @@ vim.api.nvim_create_autocmd("User", {
       { "<leader>q", group = "󰒾 Quit" },
       { "<leader>x", group = " Diagnostics" },
       { "<leader>n", group = "󰒲 Notifications" },
-      { "<leader>z", desc = "Zen mode" },
+      { "<leader>z", group = "Zen" },
       { "<leader>/", desc = "󰒬 Toggle comment" },
     })
   end,
