@@ -39,7 +39,7 @@ return {
         s("impd", { t("import { "), i(1), t(" } from '"), i(2), t("';") }),
         s("exp", { t("export default "), i(1), t(";") }),
         s("expn", { t("export const "), i(1), t(" = "), i(2), t(";") }),
-        s("try", { t({"try {", "  "}), i(1), t({"\n"}), t("} catch ("), i(2, "error"), t({") {", "  "}), i(3), t({"\n"}) })}),
+        s("try", { t({"try {", "  "}), i(1), t({"\n"}), t("} catch ("), i(2, "error"), t({") {", "  "}), i(3), t({"\n"}) })),
         s("async", { t("async "), i(1, "function"), t("("), i(2), t(") {"), t({"\n", "  "}), i(0), t({"\n", "}"}) }),
         s("await", { t("await "), i(1), t(";") }),
         s("promise", { t("new Promise((resolve, reject) => {"), t({"\n", "  "}), i(1), t({"\n"});"}) }),
