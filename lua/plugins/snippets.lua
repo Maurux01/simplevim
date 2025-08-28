@@ -34,7 +34,7 @@ return {
         s("ce", { t("console.error("), i(1), t(");") }),
         s("cw", { t("console.warn("), i(1), t(");") }),
        
-}),
+})
         s("imp", { t("import "), i(1), t(" from '"), i(2), t("';") }),
         s("impd", { t("import { "), i(1), t(" } from '"), i(2), t("';") }),
         s("exp", { t("export default "), i(1), t(";") }),
