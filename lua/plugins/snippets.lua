@@ -49,52 +49,52 @@ return {
 
       -- Java
       ls.add_snippets("java", {
-        s("class", { t("public class "), i(1, "ClassName"), t({" {", "    "}), i(0), t({"\n", "}"})
+        s("class", { t("public class "), i(1, "ClassName"), t({" {\n", "    "}), i(0), t({"\n", "}"})
 }),
-        s("main", { t({"public static void main(String[] args) {", "    "}), i(0), t({"\n", "}"})
+        s("main", { t({"public static void main(String[] args) {\n", "    "}), i(0), t({"\n", "}"})
 }),
         s("method", { t("public "), i(1, "void"), t(" "), i(2, "methodName"), t("("), i(3), t(") {"), t({"\n", "    "}), i(0), t({"\n", "}"})
 }),
         s("sout", { t("System.out.println("), i(1), t(");") }),
-        s("for", { t("for (int "), i(1, "i"), t(" = 0; "), f(function(args) return args[1][1] end, {1}), t(" < "), i(2, "length"), t("; "), f(function(args) return args[1][1] end, {1}), t("++"), t({" {", "    "}), i(0), t({"\n", "}"})
+        s("for", { t("for (int "), i(1, "i"), t(" = 0; "), f(function(args) return args[1][1] end, {1}), t(" < "), i(2, "length"), t("; "), f(function(args) return args[1][1] end, {1}), t("++"), t({" {\n", "    "}), i(0), t({"\n", "}"})
 }),
         s("foreach", { t("for ("), i(1, "Type"), t(" "), i(2, "item"), t(" : "), i(3, "collection"), t(") {"), t({"\n", "    "}), i(0), t({"\n", "}"})
 }),
         s("if", { t("if ("), i(1, "condition"), t(") {"), t({"\n", "    "}), i(0), t({"\n", "}"})
 }),
-        s("try", { t({"try {", "    "}), i(1), t({"\n"}), t("} catch ("), i(2, "Exception"), t(" e) {"), t({"\n", "    "}), i(3), t({"\n", "}"})
+        s("try", { t({"try {\n", "    "}), i(1), t({"\n"}), t("} catch ("), i(2, "Exception"), t(" e) {"), t({"\n", "    "}), i(3), t({"\n", "}"})
 }),
-        s("interface", { t("public interface "), i(1, "InterfaceName"), t({" {", "    "}), i(0), t({"\n", "}"})
+        s("interface", { t("public interface "), i(1, "InterfaceName"), t({" {\n", "    "}), i(0), t({"\n", "}"})
 })
       })
 
       -- C#
       ls.add_snippets("cs", {
-        s("class", { t("public class "), i(1, "ClassName"), t({"{ ", "    "}), i(0), t({"\n", "}"})
+        s("class", { t("public class "), i(1, "ClassName"), t({"{ "), i(0), t({"\n", "}"})
 }),
-        s("method", { t("public "), i(1, "void"), t(" "), i(2, "MethodName"), t("("), i(3), t(")"), t({"{ ", "    "}), i(0), t({"\n", "}"})
+        s("method", { t("public "), i(1, "void"), t(" "), i(2, "MethodName"), t("("), i(3), t(")"), t({"{ "), i(0), t({"\n", "}"})
 }),
         s("prop", { t("public "), i(1, "string"), t(" "), i(2, "Property"), t(" { get; set; }") }),
         s("autoprop", { t("public "), i(1, "string"), t(" "), i(2, "Property"), t(" { get; set; } = "), i(3), t(";") }),
         s("cw", { t("Console.WriteLine("), i(1), t(");") }),
         s("cr", { t("Console.ReadLine()") }),
-        s("for", { t("for (int "), i(1, "i"), t(" = 0; "), f(function(args) return args[1][1] end, {1}), t(" < "), i(2, "length"), t("; "), f(function(args) return args[1][1] end, {1}), t("++"), t({"{ ", "    "}), i(0), t({"\n", "}"})
+        s("for", { t("for (int "), i(1, "i"), t(" = 0; "), f(function(args) return args[1][1] end, {1}), t(" < "), i(2, "length"), t("; "), f(function(args) return args[1][1] end, {1}), t("++"), t({"{ "), i(0), t({"\n", "}"})
 }),
-        s("foreach", { t("foreach ("), i(1, "var"), t(" "), i(2, "item"), t(" in "), i(3, "collection"), t(")"), t({"{ ", "    "}), i(0), t({"\n", "}"})
+        s("foreach", { t("foreach ("), i(1, "var"), t(" "), i(2, "item"), t(" in "), i(3, "collection"), t(")"), t({"{ "), i(0), t({"\n", "}"})
 }),
-        s("if", { t("if ("), i(1, "condition"), t(")"), t({"{ ", "    "}), i(0), t({"\n", "}"})
+        s("if", { t("if ("), i(1, "condition"), t(")"), t({"{ "), i(0), t({"\n", "}"})
 }),
-        s("try", { t({"try", "{", "    "}), i(1), t({"\n"}), t("}"), t("catch ("), i(2, "Exception"), t(" ex)"), t({"{ ", "    "}), i(3), t({"\n", "}"})
+        s("try", { t({"try", "{\n", "    "}), i(1), t({"\n"}), t("}"), t("catch ("), i(2, "Exception"), t(" ex)"), t({"{ "), i(3), t({"\n", "}"})
 }),
         s("using", { t("using "), i(1), t(";") }),
-        s("namespace", { t("namespace "), i(1), t({"{ ", "    "}), i(0), t({"\n", "}"})
+        s("namespace", { t("namespace "), i(1), t({"{ "), i(0), t({"\n", "}"})
 })
       })
 
       -- C++
       ls.add_snippets("cpp", {
         s("include", { t("#include <"), i(1, "iostream"), t(">") }),
-        s("main", { t({"int main() {", "    "}), i(0), t({"\n", "    return 0;", "}"})
+        s("main", { t({"int main() {\n", "    "}), i(0), t({"\n", "    return 0;", "}"})
 }),
         s("class", { t("class "), i(1, "ClassName"), t({" {", "public:", "    "}), i(0), t({"\n", "};"})
 }),
@@ -111,19 +111,19 @@ return {
       ls.add_snippets("go", {
         s("package", { t("package "), i(1, "main") }),
         s("import", { t("import \""), i(1), t("\"") }),
-        s("func", { t("func "), i(1, "name"), t("("), i(2), t(") "), i(3, "error"), t({" {", "    "}), i(0), t({"\n", "}"})
+        s("func", { t("func "), i(1, "name"), t("("), i(2), t(") "), i(3, "error"), t({" {\n", "    "}), i(0), t({"\n", "}"})
 }),
-        s("main", { t({"func main() {", "    "}), i(0), t({"\n", "}"})
+        s("main", { t({"func main() {\n", "    "}), i(0), t({"\n", "}"})
 }),
-        s("if", { t("if "), i(1, "condition"), t({" {", "    "}), i(0), t({"\n", "}"})
+        s("if", { t("if "), i(1, "condition"), t({" {\n", "    "}), i(0), t({"\n", "}"})
 }),
-        s("for", { t("for "), i(1, "i := 0; i < 10; i++"), t({" {", "    "}), i(0), t({"\n", "}"})
+        s("for", { t("for "), i(1, "i := 0; i < 10; i++"), t({" {\n", "    "}), i(0), t({"\n", "}"})
 }),
-        s("struct", { t("type "), i(1, "Name"), t({" struct {", "    "}), i(0), t({"\n", "}"})
+        s("struct", { t("type "), i(1, "Name"), t({" struct {\n", "    "}), i(0), t({"\n", "}"})
 }),
-        s("interface", { t("type "), i(1, "Name"), t({" interface {", "    "}), i(0), t({"\n", "}"})
+        s("interface", { t("type "), i(1, "Name"), t({" interface {\n", "    "}), i(0), t({"\n", "}"})
 }),
-        s("method", { t("func ("), i(1, "r"), t(" "), i(2, "Receiver"), t(") "), i(3, "Method"), t("("), i(4), t(") "), i(5, "error"), t({" {", "    "}), i(0), t({"\n", "}"})
+        s("method", { t("func ("), i(1, "r"), t(" "), i(2, "Receiver"), t(") "), i(3, "Method"), t("("), i(4), t(") "), i(5, "error"), t({" {\n", "    "}), i(0), t({"\n", "}"})
 }),
         s("err", { t("if err != nil {"), t({"\n", "    return err", "}"})
 }),
@@ -132,21 +132,21 @@ return {
 
       -- Rust
       ls.add_snippets("rust", {
-        s("fn", { t("fn "), i(1, "name"), t("("), i(2), t(") -> "), i(3, "()"), t({" {", "    "}), i(0), t({"\n", "}"})
+        s("fn", { t("fn "), i(1, "name"), t("("), i(2), t(") -> "), i(3, "()"), t({" {\n", "    "}), i(0), t({"\n", "}"})
 }),
-        s("main", { t({"fn main() {", "    "}), i(0), t({"\n", "}"})
+        s("main", { t({"fn main() {\n", "    "}), i(0), t({"\n", "}"})
 }),
-        s("struct", { t("struct "), i(1, "Name"), t({" {", "    "}), i(0), t({"\n", "}"})
+        s("struct", { t("struct "), i(1, "Name"), t({" {\n", "    "}), i(0), t({"\n", "}"})
 }),
-        s("enum", { t("enum "), i(1, "Name"), t({" {", "    "}), i(0), t({"\n", "}"})
+        s("enum", { t("enum "), i(1, "Name"), t({" {\n", "    "}), i(0), t({"\n", "}"})
 }),
-        s("impl", { t("impl "), i(1, "Name"), t({" {", "    "}), i(0), t({"\n", "}"})
+        s("impl", { t("impl "), i(1, "Name"), t({" {\n", "    "}), i(0), t({"\n", "}"})
 }),
-        s("match", { t("match "), i(1, "value"), t({" {", "    "}), i(2), t({" => {},", "}"})
+        s("match", { t("match "), i(1, "value"), t({" {\n", "    "}), i(2), t({" => {},", "}"})
 }),
-        s("if", { t("if "), i(1, "condition"), t({" {", "    "}), i(0), t({"\n", "}"})
+        s("if", { t("if "), i(1, "condition"), t({" {\n", "    "}), i(0), t({"\n", "}"})
 }),
-        s("for", { t("for "), i(1, "item"), t(" in "), i(2, "iterator"), t({" {", "    "}), i(0), t({"\n", "}"})
+        s("for", { t("for "), i(1, "item"), t(" in "), i(2, "iterator"), t({" {\n", "    "}), i(0), t({"\n", "}"})
 }),
         s("println", { t("println!(\""), i(1), t("\");") }),
         s("vec", { t("vec!["), i(1), t("]") }),
@@ -156,11 +156,11 @@ return {
       -- PHP
       ls.add_snippets("php", {
         s("php", { t("<?php"), t({"\n", ""}), i(0) }),
-        s("class", { t("class "), i(1, "ClassName"), t({"{ ", "    "}), i(0), t({"\n", "}"})
+        s("class", { t("class "), i(1, "ClassName"), t({"{ "), i(0), t({"\n", "}"})
 }),
-        s("function", { t("function "), i(1, "name"), t("("), i(2), t(")"), t({"{ ", "    "}), i(0), t({"\n", "}"})
+        s("function", { t("function "), i(1, "name"), t("("), i(2), t(")"), t({"{ "), i(0), t({"\n", "}"})
 }),
-        s("method", { t("public function "), i(1, "name"), t("("), i(2), t(")"), t({"{ ", "    "}), i(0), t({"\n", "}"})
+        s("method", { t("public function "), i(1, "name"), t("("), i(2), t(")"), t({"{ "), i(0), t({"\n", "}"})
 }),
         s("echo", { t("echo "), i(1), t(";") }),
         s("var", { t("$"), i(1, "variable"), t(" = "), i(2), t(";") }),
@@ -169,14 +169,13 @@ return {
 }),
         s("if", { t("if ("), i(1, "condition"), t(") {"), t({"\n", "    "}), i(0), t({"\n", "}"})
 }),
-        s("try", { t({"try {", "    "}), i(1), t({"\n"}), t("} catch (Exception $e) {"), t({"\n", "    "}), i(2), t({"\n", "}"})
+        s("try", { t({"try {\n", "    "}), i(1), t({"\n"}), t("} catch (Exception $e) {"), t({"\n", "    "}), i(2), t({"\n", "}"})
 })
       })
 
       -- HTML
       ls.add_snippets("html", {
-        s("html5", { t({"<!DOCTYPE html>", "<html lang=\"en\">\n<head>", "    <meta charset=\"UTF-8">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
-    <title>"}), i(1, "Document"), t({"</title>", "</head>", "<body>", "    "}), i(0), t({"\n", "</body>", "</html>"})
+        s("html5", { t({"<!DOCTYPE html>\n<html lang=\"en\">\n<head>", "    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>"), i(1, "Document"), t({"</title>", "</head>", "<body>", "    "}), i(0), t({"\n", "</body>", "</html>"})
 }),
         s("div", { t("<div"), i(1), t("> "), i(2), t("</div>") }),
         s("p", { t("<p>"), i(1), t("</p>") }),
@@ -199,7 +198,7 @@ return {
         s("flex", { t({"display: flex;", "justify-content: "}), i(1, "center"), t(";"), t({"\n", "align-items: "), i(2, "center"), t(";") }),
         s("grid", { t({"display: grid;", "grid-template-columns: "}), i(1, "1fr 1fr"), t(";"), t({"\n", "gap: "), i(2, "1rem"), t(";") }),
         s("center", { t({"display: flex;", "justify-content: center;", "align-items: center;"}) }),
-        s("absolute", { t({"position: absolute;", "top: "}), i(1, "0"), t(";"), t({"\n", "left: "), i(2, "0"), t(";") }),
+        s("absolute", { t({"position: absolute;", "top: "), i(1, "0"), t(";"), t({"\n", "left: "), i(2, "0"), t(";") }),
         s("relative", { t("position: relative;") }),
         s("fixed", { t("position: fixed;") }),
         s("media", { t("@media ("), i(1, "max-width: 768px"), t(") {"), t({"\n", "    "}), i(0), t({"\n", "}"})
@@ -216,7 +215,7 @@ return {
         s("insert", { t("INSERT INTO "), i(1, "table"), t(" ("), i(2, "columns"), t(") VALUES ("), i(3, "values"), t(");") }),
         s("update", { t("UPDATE "), i(1, "table"), t(" SET "), i(2, "column = value"), t(" WHERE "), i(3, "condition"), t(";") }),
         s("delete", { t("DELETE FROM "), i(1, "table"), t(" WHERE "), i(2, "condition"), t(";") }),
-        s("create", { t("CREATE TABLE "), i(1, "table_name"), t({" (", "    "}), i(2, "id INT PRIMARY KEY"), t({"\n", "});"})
+        s("create", { t("CREATE TABLE "), i(1, "table_name"), t({" (\n", "    "}), i(2, "id INT PRIMARY KEY"), t({"\n", "});"})
 }),
         s("join", { t("JOIN "), i(1, "table"), t(" ON "), i(2, "condition") }),
         s("where", { t("WHERE "), i(1, "condition") }),
@@ -260,7 +259,8 @@ return {
 }),
         s("array", { t(""), i(1, "array"), t("=("), i(2), t(")") }),
         s("read", { t("read -p \"", i(1, "Enter value: "), " \""), i(2, "variable") }),
-        s("readyn", { t({"read -p \"", "  "}), i(1, "Continue? (y/n): "), t({"\" yn", "case $yn in", "  [Yy]*) ", "  "}), i(2), t({"echo \"Yes\"", " ;;", "  [Nn]*) ", "  "}), i(3), t({"echo \"No\"; exit 1", " ;;", "  *)", "  echo \"Please answer yes or no.\" ;;\n"})
+        s("readyn", { t({"read -p \"", "  "}), i(1, "Continue? (y/n): "), t({"\" yn", "case $yn in", "  [Yy]*) ", "  "}), i(2), t({"echo \"Yes\"", " ;;", "  [Nn]*) ", "  "}), i(3), t({"echo \"No\"; exit 1", " ;;", "  *)", "  echo \"Please answer yes or no.\" ;;
+"})
 }),
         s("getopts", { t("while getopts \"", i(1, "h:v"), " opt; do", "  case $opt in", "    h) echo \"Help\" ;;", "    v) echo \"Version\" ;;", "    \?) echo \"Invalid option\" >&2; exit 1 ;;", "  esac", "done"})
 }),
@@ -282,7 +282,7 @@ return {
 }),
         s("colors", { t({"RED='\033[0;31m'", "GREEN='\033[0;32m'", "YELLOW='\033[1;33m'", "BLUE='\033[0;34m'", "NC='\033[0m' # No Color"})
 }),
-        s("progress", { t("for i in {1..", i(1, "100"), t("}; do", "\n", "  echo -ne \"Progress: $i%\\r\"", "  sleep 0.1", "done", "echo"})
+        s("progress", { t("for i in {1..", i(1, "100"), t("}; do\n", "  echo -ne \"Progress: $i%\\r\"", "  sleep 0.1", "done", "echo"})
 }),
         s("parallel", { t(""), i(1, "command1"), t(" &"), t({"\n", ""}), i(2, "command2"), t(" &"), t({"\n", "wait"})
 }),
