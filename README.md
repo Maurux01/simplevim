@@ -301,6 +301,9 @@ All plugins will be installed automatically on first run. Wait for it to finish 
 ### Notifications
 - `<Space>nd` - Dismiss all notifications
 
+### UI
+- `<Space>ut` - Toggle transparency
+
 ### Visualization
 - Spaces shown as dots (·)
 - Tabs shown as double dots (::)

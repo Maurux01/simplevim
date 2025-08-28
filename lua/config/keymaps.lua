@@ -134,6 +134,9 @@ map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
 map("n", "<leader>zz", "<cmd>ZenMode<cr>", { desc = "Zen mode" })
 map("n", "<leader>zt", "<cmd>Twilight<cr>", { desc = "Twilight" })
 
+-- UI
+map("n", "<leader>ut", "<cmd>lua require('transparent').toggle()<cr>", { desc = "Toggle transparency" })
+
 -- Tabs
 map("n", "<leader>to", "<cmd>tabnew<cr>", { desc = "New tab" })
 map("n", "<leader>tx", "<cmd>tabclose<cr>", { desc = "Close tab" })
@@ -157,6 +160,7 @@ vim.api.nvim_create_autocmd("User", {
       { "<leader>q", group = "󰒾 Quit" },
       { "<leader>x", group = " Diagnostics" },
       { "<leader>n", group = "󰒲 Notifications" },
+      { "<leader>u", group = "UI" },
       { "<leader>z", group = "Zen" },
       { "<leader>/", desc = "󰒬 Toggle comment" },
     })
