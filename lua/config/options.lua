@@ -40,7 +40,7 @@ opt.incsearch = true
 
 -- Performance
 opt.updatetime = 250
-opt.timeoutlen = 300
+opt.timeoutlen = 150
 opt.undofile = true
 opt.swapfile = false
 opt.backup = false
