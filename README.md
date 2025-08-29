@@ -298,6 +298,11 @@ All plugins will be installed automatically on first run. Wait for it to finish 
 - `<Ctrl-/>` - Toggle comment
 - `gb` - Block comment (normal and visual)
 
+### Multicursor
+- `<C-n>` - Select next occurrence
+- `<C-p>` - Select previous occurrence
+- `<C-x>` - Skip current occurrence
+
 ### Notifications
 - `<Space>nd` - Dismiss all notifications
 
