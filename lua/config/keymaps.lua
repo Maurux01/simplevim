@@ -89,7 +89,7 @@ map("t", "<C-k>", "<C-\\_><C-n><C-w>k", { desc = "Terminal up" })
 map("t", "<C-l>", "<C-\\_><C-n><C-w>l", { desc = "Terminal right" })
 
 -- Clear search with <esc>
-map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
+map("n", "<leader>ch", "<cmd>noh<cr>", { desc = "Clear hlsearch" })
 
 -- Save file
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
