@@ -1,5 +1,5 @@
 # 🚀 simplevim
-**fast simple cute nvim** - Minimal, modern and functional Neovim configuration
+**fast, simple, and elegant nvim** - Minimal, modern and functional Neovim configuration
 ![alt text](pics/image.png)
 ## ✨ Features
 
@@ -201,7 +201,7 @@ All plugins will be installed automatically on first run. Wait for it to finish 
 ### General
 - `<Space>` - Leader key (shows which-key after 300ms)
 - `<Ctrl-s>` - Save file
-- `<Esc>` - Clear search
+- `<leader>ch` - Clear search highlighting
 
 ### File Operations
 - `<Space>w` - Save file
@@ -299,9 +299,10 @@ All plugins will be installed automatically on first run. Wait for it to finish 
 - `gb` - Block comment (normal and visual)
 
 ### Multicursor
-- `<C-n>` - Select next occurrence
-- `<C-p>` - Select previous occurrence
-- `<C-x>` - Skip current occurrence
+- `<A-n>` - Select next occurrence
+- `<A-p>` - Select previous occurrence
+- `<A-x>` - Skip current occurrence
+- `<C-c>` - Quit multicursor mode
 
 ### Notifications
 - `<Space>nd` - Dismiss all notifications
