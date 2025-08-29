@@ -389,6 +389,36 @@ vim.cmd([[colorscheme tokyonight]])
 ### Add LSP for other languages
 Edit `lua/plugins/lsp.lua` and add the server to `ensure_installed`.
 
+### Add support for a new language
+
+To add support for a new language, you need to:
+
+1.  **Install the LSP server**:
+    *   Run `:Mason` and install the corresponding language server.
+2.  **Install the parser**:
+    *   The parser will be installed automatically by `nvim-treesitter` if it's available.
+    *   You can check the list of available parsers [here](https://github.com/nvim-treesitter/nvim-treesitter#supported-languages).
+3.  **Install the formatter**:
+    *   Find a formatter for your language and install it.
+    *   Add the formatter to the `conform.nvim` configuration in `lua/plugins/formatting.lua`.
+
+Example for adding `rust`:
+
+1.  Install `rust-analyzer` with `:Mason`.
+2.  `nvim-treesitter` will install the `rust` parser automatically.
+3.  Install `rustfmt` with `rustup component add rustfmt`.
+4.  Add `rustfmt` to `lua/plugins/formatting.lua`:
+
+    ```lua
+    require("conform").setup({
+      formatters_by_ft = {
+        -- ...
+        rust = { "rustfmt" },
+        -- ...
+      },
+    })
+    ```
+
 ## 🔧 Useful commands
 
 - `:Lazy` - Manage plugins
