@@ -302,7 +302,7 @@ All plugins will be installed automatically on first run. Wait for it to finish 
 - `<A-n>` - Select next occurrence
 - `<A-p>` - Select previous occurrence
 - `<A-x>` - Skip current occurrence
-- `<C-c>` - Quit multicursor mode
+- `<leader>mc` - Quit multicursor mode
 
 ### Notifications
 - `<Space>nd` - Dismiss all notifications
