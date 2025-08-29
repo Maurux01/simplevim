@@ -1,6 +1,6 @@
 return {
   {
-    "magnar/multiple-cursors",
+    "terryma/vim-multiple-cursors",
     keys = {
       { "<C-n>", mode = { "n", "v" }, desc = "Multiple Cursors: Next" },
       { "<C-p>", mode = { "n", "v" }, desc = "Multiple Cursors: Previous" },
