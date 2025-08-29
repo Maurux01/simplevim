@@ -3,30 +3,22 @@
 ![alt text](pics/image.png)
 ## ✨ Features
 
-- ⚡ **Ultra fast**: Loads in < 0.3 seconds
-- 🎨 **Beautiful**: Tokyo Night theme with modern UI
-- 🧠 **Smart**: LSP, autocompletion, auto-formatting
-- 📁 **Functional**: File explorer, search, git integration
-- 🔧 **Minimal**: Only essentials, no bloat
+This configuration is packed with features to make your Neovim experience as smooth as possible.
 
-## 📦 Included plugins
-
-- **Plugin Manager**: `lazy.nvim` (fastest)
-- **Themes**: 10 dark themes (Tokyo Night, Catppuccin, Gruvbox, Kanagawa, Dracula, OneDark, Nord, Nightfox, Monokai Pro, Cyberdream)
-- **LSP**: `mason.nvim` + `lspconfig` (Lua, Python, TypeScript)
-- **Autocompletion**: `nvim-cmp` + `LuaSnip` + `friendly-snippets`
-- **Explorer**: `neo-tree.nvim` (with icons)
-- **Search**: `telescope.nvim` (files and text)
-- **UI**: `lualine.nvim` + `bufferline.nvim` + `alpha-nvim`
-- **Git**: `gitsigns.nvim` (changes in gutter)
-- **Formatting**: `conform.nvim` (auto on save)
-- **Syntax**: `nvim-treesitter` (advanced highlighting)
-- **Editing**: Auto-pairs, surround, comments
-- **Snippets**: LuaSnip with custom snippets
-- **Animations**: Animated cursor, smooth scroll, indent guides
-- **Which-key**: Visual guide for keybindings
-- **Whitespace**: Visualization of spaces and tabs
-- **Command line**: Smart suggestions with `wilder.nvim`
+- **Plugin Manager**: Fast plugin management with `lazy.nvim`.
+- **Modern UI**: A beautiful and functional UI with `tokyo-night` theme, `lualine.nvim`, `bufferline.nvim`, and `alpha-nvim`.
+- **Smart Editing**:
+    - Autocompletion with `nvim-cmp` and `LuaSnip`.
+    - Advanced syntax highlighting with `nvim-treesitter`.
+    - Auto-formatting on save with `conform.nvim`.
+    - Auto-pairs, surround, and comments with various plugins.
+- **LSP**: Full LSP support with `mason.nvim` and `lspconfig`.
+- **File Explorer**: A modern file explorer with `neo-tree.nvim`.
+- **Search**: Fast and powerful search with `telescope.nvim`.
+- **Git Integration**: Git integration with `gitsigns.nvim`.
+- **Animations**: Smooth animations for a better user experience.
+- **Which-key**: A handy keybinding guide with `which-key.nvim`.
+- **Command Line**: Smart command line suggestions with `cmp-cmdline`.
 
 ## 🚀 Installation
 
@@ -55,94 +47,14 @@ rd -r ~\AppData\Local\nvim-data
 ```
 
 **Windows PowerShell:**
-```
+```powershell
 rm -Force ~\AppData\Local\nvim
 rm -Force ~\AppData\Local\nvim-data
 ```
 
 ### NixOS
 
-Installation on NixOS is preferably done declaratively using `home-manager`.
-
-**1. Prerequisites**
-
-Ensure you have `neovim`, `git`, and `home-manager` installed and configured on your NixOS system. You should also install the necessary language servers and formatters.
-
-Example for `home.nix`:
-```nix
-{
-  pkgs, ...
-}:
-
-{
-  home.packages = with pkgs;
-    [ 
-      neovim
-      git
-      # For LSP and formatters
-      nodejs
-      python3
-      lua-language-server
-      pyright
-      typescript-language-server
-      prettier
-      black
-      isort
-    ];
-}
-```
-
-**2. Installation**
-
-You have two options for installing simplevim on NixOS.
-
-**Option 1: Manual (Not Recommended)**
-
-This method clones the repository directly into your config directory. This is not the idiomatic way to manage configurations on NixOS, but it is simpler.
-
-```bash
-# Backup existing config (optional)
-mv ~/.config/nvim ~/.config/nvim.backup
-
-# Clone simplevim
-git clone https://github.com/Maurux01/simplevim.git ~/.config/nvim
-```
-
-**Option 2: Declarative with home-manager (Recommended)**
-
-This is the idiomatic "Nix way" to manage your configuration.
-
-1.  Add this repository as an input to your flake's `flake.nix`:
-
-    ```nix
-    {
-      inputs = {
-        nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-        home-manager.url = "github:nix-community/home-manager";
-        simplevim = {
-          url = "github:Maurux01/simplevim";
-          flake = false;
-        };
-      };
-    }
-    ```
-
-2.  In your `home.nix`, use the `xdg.configFile` option to place the simplevim configuration in the correct location:
-
-    ```nix
-    {
-      pkgs, inputs, ...
-    }:
-
-    {
-      home.file.".config/nvim" = {
-        source = inputs.simplevim;
-        recursive = true;
-      };
-    }
-    ```
-
-After either installation method, run `nvim`. The plugins will be installed automatically on the first run.
+For NixOS installation instructions, please see [NIX.md](./NIX.md).
 
 ### 1. Requirements
 
@@ -168,25 +80,7 @@ chmod +x install.sh
 ./install.sh
 ```
 
-**Option 2: Manual installation**
 
-**Windows:**
-```cmd
-# Backup existing config (optional)
-ren %LOCALAPPDATA%\nvim %LOCALAPPDATA%\nvim.backup
-
-# Clone simplevim
-git clone https://github.com/Maurux01/simplevim.git %LOCALAPPDATA%\nvim
-```
-
-**Linux/macOS:**
-```bash
-# Backup existing config (optional)
-mv ~/.config/nvim ~/.config/nvim.backup
-
-# Clone simplevim
-git clone https://github.com/Maurux01/simplevim.git ~/.config/nvim
-```
 
 ### 3. First run
 
@@ -197,6 +91,8 @@ nvim
 All plugins will be installed automatically on first run. Wait for it to finish and restart Neovim.
 
 ## ⌨️ Main keybindings
+
+The leader key is set to the space bar.
 
 ### General
 - `<Space>` - Leader key (shows which-key after 300ms)
@@ -339,6 +235,21 @@ All plugins will be installed automatically on first run. Wait for it to finish 
 
 This configuration preserves most of the default Vim keybindings. Here are some of the most common ones:
 
+### Inserting Text
+- `i` - Insert before cursor
+- `a` - Append after cursor
+- `I` - Insert at the beginning of the line
+- `A` - Append at the end of the line
+- `o` - Open a new line below
+- `O` - Open a new line above
+
+### Editing Text
+- `r` - Replace a single character
+- `c` - Change (delete and enter insert mode)
+- `C` - Change to the end of the line
+- `s` - Substitute a character
+- `S` - Substitute a line
+
 ### Undo/Redo
 - `u` - Undo
 - `<C-r>` - Redo
@@ -356,344 +267,7 @@ This configuration preserves most of the default Vim keybindings. Here are some 
 ### Movement
 - `h/j/k/l` - Left/down/up/right
 - `w/b` - Next/previous word
-- `0/# 🚀 simplevim
-**fast, simple, and elegant nvim** - Minimal, modern and functional Neovim configuration
-![alt text](pics/image.png)
-## ✨ Features
-
-- ⚡ **Ultra fast**: Loads in < 0.3 seconds
-- 🎨 **Beautiful**: Tokyo Night theme with modern UI
-- 🧠 **Smart**: LSP, autocompletion, auto-formatting
-- 📁 **Functional**: File explorer, search, git integration
-- 🔧 **Minimal**: Only essentials, no bloat
-
-## 📦 Included plugins
-
-- **Plugin Manager**: `lazy.nvim` (fastest)
-- **Themes**: 10 dark themes (Tokyo Night, Catppuccin, Gruvbox, Kanagawa, Dracula, OneDark, Nord, Nightfox, Monokai Pro, Cyberdream)
-- **LSP**: `mason.nvim` + `lspconfig` (Lua, Python, TypeScript)
-- **Autocompletion**: `nvim-cmp` + `LuaSnip` + `friendly-snippets`
-- **Explorer**: `neo-tree.nvim` (with icons)
-- **Search**: `telescope.nvim` (files and text)
-- **UI**: `lualine.nvim` + `bufferline.nvim` + `alpha-nvim`
-- **Git**: `gitsigns.nvim` (changes in gutter)
-- **Formatting**: `conform.nvim` (auto on save)
-- **Syntax**: `nvim-treesitter` (advanced highlighting)
-- **Editing**: Auto-pairs, surround, comments
-- **Snippets**: LuaSnip with custom snippets
-- **Animations**: Animated cursor, smooth scroll, indent guides
-- **Which-key**: Visual guide for keybindings
-- **Whitespace**: Visualization of spaces and tabs
-- **Command line**: Smart suggestions with `wilder.nvim`
-
-## 🚀 Installation
-
-### 0. Clean previous installations (if needed)
-
-If you have issues with corrupted plugins or configurations, clean everything first:
-
-**Linux / MacOS (unix):**
-```bash
-rm -rf ~/.config/nvim
-rm -rf ~/.local/state/nvim
-rm -rf ~/.local/share/nvim
-```
-
-**Flatpak (linux):**
-```bash
-rm -rf ~/.var/app/io.neovim.nvim/config/nvim
-rm -rf ~/.var/app/io.neovim.nvim/data/nvim
-rm -rf ~/.var/app/io.neovim.nvim/.local/state/nvim
-```
-
-**Windows CMD:**
-```
-rd -r ~\AppData\Local\nvim
-rd -r ~\AppData\Local\nvim-data
-```
-
-**Windows PowerShell:**
-```
-rm -Force ~\AppData\Local\nvim
-rm -Force ~\AppData\Local\nvim-data
-```
-
-### NixOS
-
-Installation on NixOS is preferably done declaratively using `home-manager`.
-
-**1. Prerequisites**
-
-Ensure you have `neovim`, `git`, and `home-manager` installed and configured on your NixOS system. You should also install the necessary language servers and formatters.
-
-Example for `home.nix`:
-```nix
-{
-  pkgs, ...
-}:
-
-{
-  home.packages = with pkgs;
-    [ 
-      neovim
-      git
-      # For LSP and formatters
-      nodejs
-      python3
-      lua-language-server
-      pyright
-      typescript-language-server
-      prettier
-      black
-      isort
-    ];
-}
-```
-
-**2. Installation**
-
-You have two options for installing simplevim on NixOS.
-
-**Option 1: Manual (Not Recommended)**
-
-This method clones the repository directly into your config directory. This is not the idiomatic way to manage configurations on NixOS, but it is simpler.
-
-```bash
-# Backup existing config (optional)
-mv ~/.config/nvim ~/.config/nvim.backup
-
-# Clone simplevim
-git clone https://github.com/Maurux01/simplevim.git ~/.config/nvim
-```
-
-**Option 2: Declarative with home-manager (Recommended)**
-
-This is the idiomatic "Nix way" to manage your configuration.
-
-1.  Add this repository as an input to your flake's `flake.nix`:
-
-    ```nix
-    {
-      inputs = {
-        nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-        home-manager.url = "github:nix-community/home-manager";
-        simplevim = {
-          url = "github:Maurux01/simplevim";
-          flake = false;
-        };
-      };
-    }
-    ```
-
-2.  In your `home.nix`, use the `xdg.configFile` option to place the simplevim configuration in the correct location:
-
-    ```nix
-    {
-      pkgs, inputs, ...
-    }:
-
-    {
-      home.file.".config/nvim" = {
-        source = inputs.simplevim;
-        recursive = true;
-      };
-    }
-    ```
-
-After either installation method, run `nvim`. The plugins will be installed automatically on the first run.
-
-### 1. Requirements
-
-- Neovim 0.9+
-- Git
-- Node.js (for TypeScript LSP)
-- Python (for Python LSP)
-
-### 2. Automatic installation
-
-**Option 1: Automatic installer (Recommended)**
-
-```bash
-# Clone the repository
-git clone https://github.com/Maurux01/simplevim.git
-cd simplevim
-
-# Windows
-install.bat
-
-# Linux/macOS
-chmod +x install.sh
-./install.sh
-```
-
-**Option 2: Manual installation**
-
-**Windows:**
-```cmd
-# Backup existing config (optional)
-ren %LOCALAPPDATA%\nvim %LOCALAPPDATA%\nvim.backup
-
-# Clone simplevim
-git clone https://github.com/Maurux01/simplevim.git %LOCALAPPDATA%\nvim
-```
-
-**Linux/macOS:**
-```bash
-# Backup existing config (optional)
-mv ~/.config/nvim ~/.config/nvim.backup
-
-# Clone simplevim
-git clone https://github.com/Maurux01/simplevim.git ~/.config/nvim
-```
-
-### 3. First run
-
-```bash
-nvim
-```
-
-All plugins will be installed automatically on first run. Wait for it to finish and restart Neovim.
-
-## ⌨️ Main keybindings
-
-### General
-- `<Space>` - Leader key (shows which-key after 300ms)
-- `<Ctrl-s>` - Save file
-- `<leader>ch` - Clear search highlighting
-
-### File Operations
-- `<Space>w` - Save file
-- `<Space>wn` - New file
-- `<Space>wd` - Delete current file
-- `<Space>wm` - Create directory
-
-### Quit Operations
-- `<Space>q` - Quit
-- `<Space>q!` - Quit without saving
-- `<Space>qq` - Save and quit
-
-### Navigation
-- `<Ctrl-h/j/k/l>` - Move between windows
-- `<Shift-h/l>` - Switch between buffers
-- `<Ctrl-Shift-j/k>` - Move lines up/down
-
-### File explorer
-- `<Space>e` - Open/close Neo-tree
-
-### Search (Telescope)
-- `<Space>ff` - Find files
-- `<Space>fg` - Find text
-- `<Space>fb` - Find buffers
-- `<Space>fr` - Recent files
-
-### LSP
-- `gd` - Go to definition
-- `K` - Show documentation
-- `<Space>rn` - Rename
-- `<Space>ca` - Code actions
-- `<Space>f` - Format code
-
-### Git
-- `]h` / `[h` - Next/previous change
-- `<Space>ghs` - Stage hunk
-- `<Space>ghr` - Reset hunk
-- `<Space>ghp` - Preview hunk
-
-### Buffers
-**Navigation:**
-- `<Shift-h/l>` - Previous/Next buffer
-- `<Tab>` - Next buffer
-- `<Shift-Tab>` - Previous buffer
-- `<Space>bn` - Next buffer
-- `<Space>bp` - Previous buffer
-- `<Space>bf` - First buffer
-- `<Space>bl` - Last buffer
-
-**Management:**
-- `<Space>bd` - Close buffer
-- `<Space>bo` - Close other buffers
-- `<Space>ba` - Close all buffers
-
-### Splits/Windows
-**Navigation:**
-- `<Ctrl-h/j/k/l>` - Move between windows
-- `<Alt-h/j/k/l>` - Alternative navigation
-
-**Create/Close:**
-- `<Space>sv` - Vertical split
-- `<Space>sh` - Horizontal split
-- `<Space>sx` - Close current split
-- `<Space>so` - Close other splits
-- `<Space>sm` - Maximize/restore split
-
-**Resize:**
-- `<Shift-Arrows>` - Fast resize (±5)
-- `<Ctrl-Arrows>` - Slow resize (±2)
-- `<Space>s+/-` - Height ±10
-- `<Space>s</>` - Width ±10
-- `<Space>se` - Equal sizes
-
-**Move windows:**
-- `<Space>sH/J/K/L` - Move window left/down/up/right
-
-### Terminal
-- `<Space>th` - Horizontal terminal
-- `<Space>tv` - Vertical terminal
-- `<Space>tt` - Terminal in new tab
-- `<Esc>` - Exit terminal mode (in terminal)
-- `<Ctrl-h/j/k/l>` - Navigate from terminal
-
-### Tabs
-- `<Space>to` - New tab
-- `<Space>tx` - Close tab
-- `<Space>tn` - Next tab
-- `<Space>tp` - Previous tab
-
-### Comments
-- `gcc` - Comment/uncomment line
-- `gc` - Comment/uncomment (normal and visual)
-- `<Space>/` - Toggle comment
-- `<Ctrl-/>` - Toggle comment
-- `gb` - Block comment (normal and visual)
-
-### Multicursor
-- `<A-n>` - Select next occurrence
-- `<A-p>` - Select previous occurrence
-- `<A-x>` - Skip current occurrence
-- `<leader>mc` - Quit multicursor mode
-
-### Notifications
-- `<Space>nd` - Dismiss all notifications
-
-### UI
-- `<Space>ut` - Toggle transparency
-
-### Visualization
-- Spaces shown as dots (·)
-- Tabs shown as double dots (::)
-- Cursor with colorful tail animation
-- Smooth scroll with animations
-- Animated indent guides
-
-### Themes
-![alt text](pics/image-5.png)
-- `<Space>ct` - Change theme (cycle through all)
-- `:Theme tokyo` - Tokyo Night
-- `:Theme cat` - Catppuccin Mocha
-- `:Theme gruvbox` - Gruvbox Hard
-- `:Theme kanagawa` - Kanagawa Wave
-- `:Theme dracula` - Dracula
-- `:Theme onedark` - One Dark
-- `:Theme nord` - Nord
-- `:Theme nightfox` - Nightfox
-- `:Theme monokai` - Monokai Pro
-- `:Theme cyber` - Cyberdream
-
-
-![alt text](pics/image-1.png)![alt text](pics/image-2.png)![alt text](pics/image-3.png)![alt text](pics/image-4.png)![alt text](pics/image-6.png)![alt text](pics/image-7.png)![alt text](pics/image-8.png)![alt text](pics/image-9.png)![alt text](pics/image-10.png)![alt text](pics/image-11.png)
-
-
- - Start/end of line
+- `0/$` - Start/end of line
 - `gg/G` - Start/end of file
 
 ### Search
@@ -705,6 +279,14 @@ All plugins will be installed automatically on first run. Wait for it to finish 
 - `v` - Character-wise visual mode
 - `V` - Line-wise visual mode
 - `<C-v>` - Block-wise visual mode
+
+### Marks and Jumps
+- `m{a-z}` - Set a mark
+- `'{a-z}` - Jump to a mark
+
+### Macros
+- `q{a-z}` - Record a macro
+- `@{a-z}` - Execute a macro
 
 ## 🎨 Customization
 
