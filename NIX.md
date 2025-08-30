@@ -81,3 +81,5 @@ This is the idiomatic "Nix way" to manage your configuration.
     ```
 
 After either installation method, run `nvim`. The plugins will be installed automatically on the first run.
+
+
