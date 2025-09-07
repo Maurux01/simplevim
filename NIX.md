@@ -26,6 +26,13 @@ Example for `home.nix`:
       prettier
       black
       isort
+
+      # Recommended for Telescope
+      ripgrep
+      fd
+
+      # Required for Treesitter parsers
+      gcc
     ];
 }
 ```
