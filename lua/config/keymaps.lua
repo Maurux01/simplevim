@@ -95,7 +95,7 @@ map("n", "<leader>ch", "<cmd>noh<cr>", { desc = "Clear hlsearch" })
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
 -- File operations
-map("n", "<leader>w", "<cmd>w<cr>", { desc = "Save file" })
+map("n", "<leader>ws", "<cmd>w<cr>", { desc = "Save file" })
 map("n", "<leader>c", "<cmd>w<cr>", { desc = "Guardar cambios" })
 map("n", "<leader>wn", "<cmd>enew<cr>", { desc = "New file" })
 map("n", "<leader>wd", function()
