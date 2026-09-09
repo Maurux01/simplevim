@@ -31,10 +31,13 @@ lua/plugins/
   lsp.lua                  Mason, LSP, nvim-cmp, schemastore
   navigation.lua           Telescope, nvim-tree
   fullstack.lua            Live server, markdown preview
-script.sh                  Instalador automatizado
+script.sh                  Instalador automatizado (Linux/macOS)
+script.ps1                 Instalador automatizado (Windows)
 ```
 
 ## Instalacion
+
+### Linux / macOS
 
 ```bash
 ./script.sh                      # Instalacion normal
@@ -45,6 +48,24 @@ script.sh                  Instalador automatizado
 ```
 
 El script hace backup, limpia `~/.config/nvim`, `~/.local/share/nvim` y `~/.cache/nvim`, clona este repositorio y sincroniza los plugins con Lazy automaticamente.
+
+### Windows
+
+```powershell
+.\script.ps1                     # Instalacion normal
+.\script.ps1 -Interactive        # Modo interactivo
+.\script.ps1 -Force              # Forzar sin backup
+.\script.ps1 -Backup             # Restaurar un backup
+.\script.ps1 -Repo "usuario/repo" -Branch "develop"  # Desde otro repo/rama
+.\script.ps1 -LazySync           # Instalar y sincronizar plugins
+```
+
+El script usa `%LOCALAPPDATA%\nvim` (config), `%LOCALAPPDATA%\nvim-data` (datos) y `%TEMP%\nvim` (cache).
+
+> **Nota**: Si PowerShell bloquea el script, ejecuta primero:
+> ```powershell
+> Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+> ```
 
 ## Cambiar de tema
 
