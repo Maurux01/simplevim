@@ -1,26 +1,77 @@
--- ~/.config/nvim/init.lua (version minima)
-local fn = vim.fn
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+-- =============================================
+--  simplevim - Neovim fullstack config
+--  Base: kickstart.nvim + Lazy.nvim
+--  Tema oscuro, lualine bonita, sin '~',
+--  sin banner, numeros reales
+-- =============================================
 
-if fn.empty(fn.glob(install_path)) > 0 then
-  fn.system({
+-- ---------------------------------------------
+--  1. BOOTSTRAP DE LAZY.NVIM
+-- ---------------------------------------------
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
     "git",
     "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazypath,
   })
-  vim.cmd("packadd packer.nvim")
-  print("Packer instalado. Reinicia Neovim.")
-  return
 end
+vim.opt.rtp:prepend(lazypath)
 
-vim.cmd("packadd packer.nvim")
+-- ---------------------------------------------
+--  2. CONFIGURACION BASICA (NEOVIM DEFAULTS)
+-- ---------------------------------------------
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
-require("packer").startup(function(use)
-  use("wbthomason/packer.nvim")
-  use("catppuccin/nvim")
-end)
+local opt = vim.opt
 
-vim.cmd("colorscheme catppuccin")
+opt.number = true
+opt.relativenumber = false
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.expandtab = true
+opt.smartindent = true
+opt.termguicolors = true
+opt.updatetime = 300
+opt.timeoutlen = 300
+opt.swapfile = false
+opt.backup = false
+opt.ignorecase = true
+opt.smartcase = true
+opt.hlsearch = false
+opt.incsearch = true
+opt.scrolloff = 4
+opt.sidescrolloff = 8
+opt.splitright = true
+opt.splitbelow = true
+opt.signcolumn = "yes"
+opt.cursorline = true
+
+opt.shortmess = "aoOtTI"
+opt.showmode = false
+opt.cmdheight = 1
+
+opt.fillchars = {
+  eob = " ",
+  fold = " ",
+  foldopen = " ",
+  foldclose = " ",
+  foldsep = " ",
+  diff = " ",
+  msgsep = " ",
+  vert = "|",
+}
+
+-- Tema oscuro (elige "catppuccin" o "tokyonight")
+vim.g.simplevim_theme = "catppuccin"
+
+-- ---------------------------------------------
+--  3. CARGAR MODULOS
+-- ---------------------------------------------
+require("lazy").setup("plugins")
+require("theme").setup()
+require("keymaps")
