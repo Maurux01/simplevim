@@ -18,6 +18,9 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Split abajo" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Split arriba" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Split derecho" })
 
+-- Algunas terminales envian Ctrl+h como backspace
+vim.keymap.set("n", "<BS>", "<C-w>h", { desc = "Split izquierdo (backspace)" })
+
 -- Redimensionar splits
 vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", { desc = "Ancho -2" })
 vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Ancho +2" })

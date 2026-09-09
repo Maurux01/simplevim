@@ -85,10 +85,25 @@ return {
     config = function()
       require("telescope").setup({
         defaults = {
-          file_ignore_patterns = { "node_modules", ".git", "dist", "build" },
+          file_ignore_patterns = {
+            "node_modules/.*",
+            "%.git/.*",
+            "dist/.*",
+            "build/.*",
+          },
+          find_command = {
+            "fd",
+            "--type", "f",
+            "--hidden",
+            "--follow",
+            "--exclude", ".git",
+            "--exclude", "node_modules",
+            "--exclude", "dist",
+            "--exclude", "build",
+          },
         },
         pickers = {
-          find_files = { hidden = true },
+          find_files = { hidden = true, follow = false },
         },
       })
     end,
