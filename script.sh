@@ -95,16 +95,26 @@ info "Sistema operativo detectado: $OS"
 info "Verificando instalacion de Neovim"
 NVIM_PATH=""
 if command -v nvim &> /dev/null; then
-  NVIM_PATH=$(command -v nvim)
+  NVIM_PATH="$(command -v nvim)"
 elif [ -f "/usr/bin/nvim" ]; then
   NVIM_PATH="/usr/bin/nvim"
 elif [ -f "/usr/local/bin/nvim" ]; then
   NVIM_PATH="/usr/local/bin/nvim"
-else
+elif [ "$OS" = "Windows" ]; then
+  # Rutas tipicas de Neovim en Windows (Git Bash ve C: como /c/)
+  for _cand in "/c/Program Files/Neovim/bin/nvim.exe" "/c/Program Files (x86)/Neovim/bin/nvim.exe" "${HOME}/AppData/Local/Programs/Neovim/bin/nvim.exe" "/opt/neovim/bin/nvim.exe"; do
+    if [ -f "$_cand" ]; then
+      NVIM_PATH="$_cand"
+      break
+    fi
+  done
+  unset _cand
+fi
+if [ -z "$NVIM_PATH" ]; then
   error "Neovim no esta instalado. Instalalo primero."
 fi
 
-NVIM_VERSION=$($NVIM_PATH --version | head -n 1)
+NVIM_VERSION=$("$NVIM_PATH" --version | head -n 1)
 info "Neovim encontrado en: $NVIM_PATH"
 debug "Version: $NVIM_VERSION"
 
@@ -114,10 +124,48 @@ if ! command -v git &> /dev/null; then
 fi
 info "Git detectado correctamente."
 
-# Directorios de Neovim
-NVIM_CONFIG_DIR="${HOME}/.config/nvim"
-NVIM_DATA_DIR="${HOME}/.local/share/nvim"
-NVIM_CACHE_DIR="${HOME}/.cache/nvim"
+# Directorios de Neovim (segun SO: Windows usa %LOCALAPPDATA%\nvim)
+if [ "$OS" = "Windows" ]; then
+  # Resolver LOCALAPPDATA a ruta Unix (Git Bash/MSYS/Cygwin)
+  _LOCALAPPDATA=""
+  if [ -n "${LOCALAPPDATA:-}" ]; then
+    if command -v cygpath &> /dev/null; then
+      _LOCALAPPDATA=$(cygpath -u "$LOCALAPPDATA")
+    else
+      _LOCALAPPDATA="$LOCALAPPDATA"
+    fi
+  fi
+  # Fallback tipico en Git Bash: $HOME/AppData/Local
+  if [ -z "$_LOCALAPPDATA" ] || [ ! -d "$_LOCALAPPDATA" ]; then
+    _LOCALAPPDATA="${HOME}/AppData/Local"
+  fi
+  # TEMP para cache
+  _TEMP_DIR=""
+  if [ -n "${TEMP:-}" ]; then
+    if command -v cygpath &> /dev/null; then
+      _TEMP_DIR=$(cygpath -u "$TEMP")
+    else
+      _TEMP_DIR="$TEMP"
+    fi
+  elif [ -n "${TMP:-}" ]; then
+    if command -v cygpath &> /dev/null; then
+      _TEMP_DIR=$(cygpath -u "$TMP")
+    else
+      _TEMP_DIR="$TMP"
+    fi
+  fi
+  if [ -z "$_TEMP_DIR" ] || [ ! -d "$_TEMP_DIR" ]; then
+    _TEMP_DIR="${HOME}/AppData/Local/Temp"
+  fi
+
+  NVIM_CONFIG_DIR="${_LOCALAPPDATA}/nvim"
+  NVIM_DATA_DIR="${_LOCALAPPDATA}/nvim-data"
+  NVIM_CACHE_DIR="${_TEMP_DIR}/nvim"
+else
+  NVIM_CONFIG_DIR="${HOME}/.config/nvim"
+  NVIM_DATA_DIR="${HOME}/.local/share/nvim"
+  NVIM_CACHE_DIR="${HOME}/.cache/nvim"
+fi
 
 info "Directorios de Neovim:"
 echo "  Config:  $NVIM_CONFIG_DIR"

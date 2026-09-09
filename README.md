@@ -31,13 +31,13 @@ lua/plugins/
   lsp.lua                  Mason, LSP, nvim-cmp, schemastore
   navigation.lua           Telescope, nvim-tree
   fullstack.lua            Live server, markdown preview
-script.sh                  Instalador automatizado (Linux/macOS)
-script.ps1                 Instalador automatizado (Windows)
+script.sh                  Instalador automatizado (Linux/macOS/Windows con Git Bash)
+script.ps1                 Instalador automatizado (Windows nativo, PowerShell)
 ```
 
 ## Instalacion
 
-### Linux / macOS
+### Linux / macOS / Windows (Git Bash)
 
 ```bash
 ./script.sh                      # Instalacion normal
@@ -48,6 +48,8 @@ script.ps1                 Instalador automatizado (Windows)
 ```
 
 El script hace backup, limpia `~/.config/nvim`, `~/.local/share/nvim` y `~/.cache/nvim`, clona este repositorio y sincroniza los plugins con Lazy automaticamente.
+
+> **Nota (Windows con Git Bash)**: `script.sh` tambien funciona en Windows si lo ejecutas desde Git Bash (`bash script.sh`). En ese caso usa las rutas nativas de Neovim en Windows: `%LOCALAPPDATA%\nvim` (config), `%LOCALAPPDATA%\nvim-data` (datos) y `%TEMP%\nvim` (cache).
 
 ### Windows
 
