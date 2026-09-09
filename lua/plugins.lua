@@ -141,6 +141,7 @@ return {
         "rust_analyzer",
         "tailwindcss",
         "lua_ls",
+        "emmet_ls",
       },
       automatic_enable = true,
     },
@@ -149,6 +150,17 @@ return {
 
       vim.lsp.config("all", {
         capabilities = require("cmp_nvim_lsp").default_capabilities(),
+      })
+
+      vim.lsp.config("emmet_ls", {
+        filetypes = {
+          "html",
+          "css",
+          "scss",
+          "less",
+          "javascriptreact",
+          "typescriptreact",
+        },
       })
 
       vim.api.nvim_create_autocmd("LspAttach", {
@@ -272,6 +284,14 @@ return {
     end,
   },
 
+  {
+    "windwp/nvim-ts-autotag",
+    event = "InsertEnter",
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
+  },
+
   -- ============================================
   --  UTILIDADES
   -- ============================================
@@ -300,4 +320,27 @@ return {
   },
 
   { "tpope/vim-surround", keys = { "ys", "ds", "cs" } },
+
+  -- ============================================
+  --  LIVE SERVER Y PREVIEW
+  -- ============================================
+  {
+    "aurum77/live-server.nvim",
+    cmd = { "LiveServerStart", "LiveServerStop" },
+    config = function()
+      require("live_server").setup({
+        browser_command = "xdg-open",
+      })
+    end,
+  },
+
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function()
+      require("lazy").load({ plugins = { "markdown-preview.nvim" } })
+      vim.fn["mkdp#util#install"]()
+    end,
+  },
 }
