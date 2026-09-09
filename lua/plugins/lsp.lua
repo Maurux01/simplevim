@@ -22,6 +22,7 @@ return {
       "mason-org/mason.nvim",
       "neovim/nvim-lspconfig",
       "hrsh7th/cmp-nvim-lsp",
+      "b0o/schemastore.nvim",
     },
     opts = {
       ensure_installed = {
@@ -42,8 +43,8 @@ return {
     config = function(_, opts)
       require("mason-lspconfig").setup(opts)
 
-      vim.lsp.config("all", {
-        capabilities = require("cmp-nvim-lsp").default_capabilities(),
+      vim.lsp.config("*", {
+        capabilities = require("cmp_nvim_lsp").default_capabilities(),
       })
 
       vim.lsp.config("html", {
@@ -156,6 +157,7 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
       "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip",
     },

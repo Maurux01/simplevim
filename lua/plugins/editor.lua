@@ -7,13 +7,14 @@ return {
   -- ============================================
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "master", -- la rama main elimino el modulo configs; master conserva la API setup()
     build = ":TSUpdate",
     event = { "BufReadPost", "BufNewFile" },
     config = function()
       require("nvim-treesitter.configs").setup({
         ensure_installed = {
           "lua", "vim", "vimdoc",
-          "javascript", "typescript", "tsx", "jsx", "html", "css", "scss",
+          "javascript", "typescript", "tsx", "html", "css", "scss",
           "json", "jsonc", "yaml", "toml",
           "python", "bash", "markdown", "markdown_inline",
           "sql", "dockerfile", "regex", "diff",
