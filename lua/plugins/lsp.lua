@@ -99,7 +99,9 @@ return {
           map("n", "<leader>rn", vim.lsp.buf.rename, "Renombrar")
           map("n", "<leader>ca", vim.lsp.buf.code_action, "Code action")
           map("n", "<leader>ld", vim.diagnostic.open_float, "Diagnostico linea")
-          map("n", "<leader>lf", function() vim.lsp.buf.format({ async = true }) end, "Formatear")
+          map({ "n", "v" }, "<leader>lf", function()
+            require("conform").format({ async = true, lsp_format = "fallback" })
+          end, "Formatear (Prettier/LSP)")
           map("n", "[d", vim.diagnostic.goto_prev, "Diagnostico anterior")
           map("n", "]d", vim.diagnostic.goto_next, "Diagnostico siguiente")
 
@@ -123,18 +125,9 @@ return {
         end,
       })
 
-      -- Formato al guardar (con validacion de buffer)
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        callback = function(ev)
-          if not vim.api.nvim_buf_is_valid(ev.buf) then return end
-          local clients = vim.lsp.get_clients({ bufnr = ev.buf })
-          if #clients > 0 then
-            pcall(function()
-              vim.lsp.buf.format({ bufnr = ev.buf, async = true })
-            end)
-          end
-        end,
-      })
+      -- Formato al guardar: lo maneja conform.nvim (lua/plugins/format.lua)
+      -- Se elimina el BufWritePre con vim.lsp.buf.format para evitar doble
+      -- formateo y la carrera de async=true (prettier primero, LSP como fallback).
     end,
   },
 

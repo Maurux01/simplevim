@@ -89,6 +89,13 @@ Write-Debug "Version: $NvimVersion"
 if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
     Write-Error "Git no esta instalado. Instalalo para poder clonar el repositorio."
 }
+# --- VERIFICAR DEPENDENCIAS OPCIONALES (no bloquean, solo avisan) ---
+# Telescope necesita 'rg' (live_grep) y 'fd' (find_files rapido).
+foreach ($dep in @("rg", "fd", "node")) {
+    if (-not (Get-Command $dep -ErrorAction SilentlyContinue)) {
+        Write-Warn "Dependencia opcional no encontrada: '$dep'. (winget install BurntSushi.Ripgrep.MSVC sharkdp.fd OpenJS.NodeJS.LTS)"
+    }
+}
 Write-Info "Git detectado correctamente."
 
 # --- FUNCION: CONFIRMAR PASO ---

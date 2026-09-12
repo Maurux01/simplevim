@@ -124,6 +124,14 @@ if ! command -v git &> /dev/null; then
 fi
 info "Git detectado correctamente."
 
+# Dependencias opcionales (no bloquean, solo avisan).
+# Telescope necesita 'rg' (live_grep) y 'fd' (find_files rapido).
+for dep in rg fd node; do
+  if ! command -v "$dep" &> /dev/null; then
+    warn "Dependencia opcional no encontrada: '$dep'. Instalala con tu gestor de paquetes (apt/brew/pacman/choco/winget)."
+  fi
+done
+
 # Directorios de Neovim (segun SO: Windows usa %LOCALAPPDATA%\nvim)
 if [ "$OS" = "Windows" ]; then
   # Resolver LOCALAPPDATA a ruta Unix (Git Bash/MSYS/Cygwin)

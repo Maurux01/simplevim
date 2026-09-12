@@ -8,22 +8,14 @@ map("n", "<leader>w", ":w<CR>", { desc = "Guardar" })
 map("n", "<leader>q", ":q<CR>", { desc = "Cerrar" })
 map("n", "<leader>Q", ":qa!<CR>", { desc = "Forzar cerrar todo" })
 
--- Explorador de archivos
-map("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Explorador de archivos" })
-
--- Telescope
-map("n", "<leader>ff", ":Telescope find_files<CR>", { desc = "Buscar archivos" })
-map("n", "<leader>fg", ":Telescope live_grep<CR>", { desc = "Buscar en contenido" })
-map("n", "<leader>fb", ":Telescope buffers<CR>", { desc = "Lista de buffers" })
-map("n", "<leader>fh", ":Telescope help_tags<CR>", { desc = "Ayuda" })
-map("n", "<leader>fr", ":Telescope oldfiles<CR>", { desc = "Archivos recientes" })
-map("n", "<leader>fd", ":Telescope diagnostics<CR>", { desc = "Diagnostico" })
+-- Explorador (nvim-tree) y Telescope: definidos como `keys` con lazy-load
+-- en lua/plugins/navigation.lua. No duplicarlos aqui: el spec `keys`
+-- carga el plugin al presionar la tecla y es la unica fuente de verdad.
 
 -- Buffers
 map("n", "<S-h>", ":bprevious<CR>", { desc = "Buffer anterior" })
 map("n", "<S-l>", ":bnext<CR>", { desc = "Buffer siguiente" })
 map("n", "<leader>bd", ":bdelete<CR>", { desc = "Cerrar buffer" })
-map("n", "<leader>bl", ":Telescope buffers<CR>", { desc = "Listar buffers" })
 
 -- Navegacion de splits
 map("n", "<C-h>", "<C-w>h", { desc = "Split izquierdo" })

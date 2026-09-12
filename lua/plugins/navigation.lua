@@ -26,6 +26,19 @@ return {
     },
     config = function()
       local telescope = require("telescope")
+      -- fd/rg son binarios externos: forzar find_command con fd inexistente
+      -- rompe find_files ("fd: Executable not found"). Solo se configuran
+      -- si estan instalados; si no, Telescope usa su buscador por defecto
+      -- y se avisa una vez por sesion.
+      local has_fd = vim.fn.executable("fd") == 1 or vim.fn.executable("fdfind") == 1
+      local has_rg = vim.fn.executable("rg") == 1
+      if not has_fd then
+        vim.notify("simplevim: 'fd' no encontrado; find_files usara el buscador por defecto (mas lento). Instala fd: https://github.com/sharkdp/fd", vim.log.levels.WARN)
+      end
+      if not has_rg then
+        vim.notify("simplevim: 'rg' (ripgrep) no encontrado; live_grep no funcionara. Instalalo: https://github.com/BurntSushi/ripgrep", vim.log.levels.WARN)
+      end
+      local fd_bin = vim.fn.executable("fd") == 1 and "fd" or "fdfind"
       telescope.setup({
         defaults = {
           file_ignore_patterns = {
@@ -52,13 +65,14 @@ return {
           find_files = {
             hidden = true,
             follow = false,
-            find_command = { "fd", "--type", "f", "--hidden", "--exclude", ".git" },
+            -- nil = Telescope elige su propio finder (rg/fd/find)
+            find_command = has_fd and { fd_bin, "--type", "f", "--hidden", "--exclude", ".git" } or nil,
           },
-          live_grep = {
+          live_grep = has_rg and {
             additional_args = function()
               return { "--hidden" }
             end,
-          },
+          } or nil,
         },
       })
     end,

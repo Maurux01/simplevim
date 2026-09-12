@@ -14,6 +14,7 @@ Configuracion fullstack para Neovim, basada en [kickstart.nvim](https://github.c
 - **Sin `~`** al final del buffer (fillchars personalizados)
 - **Modular**: plugins organizados en `lua/plugins/*.lua` por categoria
 - **Fullstack**: LSP para TypeScript, HTML, CSS, JSON (con schemas), Python, Tailwind, Docker, SQL, Bash, Lua, Emmet
+- **Formateo**: Prettier/Prettierd via conform.nvim (JS/TS/HTML/CSS/JSON/YAML/Markdown...), LSP como fallback; formato al guardar
 - **Autocompletado**: nvim-cmp con LSP, snippets (LuaSnip), buffer y path
 - **Treesitter**: Highlight + indent para 20+ lenguajes
 - **Utilidades**: autopairs, gitsigns, Comment.nvim, vim-surround
@@ -31,6 +32,7 @@ lua/plugins/
   lsp.lua                  Mason, LSP, nvim-cmp, schemastore
   navigation.lua           Telescope, nvim-tree
   fullstack.lua            Live server, markdown preview
+  format.lua               Prettier/Prettierd via conform.nvim (formato al guardar)
 script.sh                  Instalador automatizado (Linux/macOS/Windows con Git Bash)
 script.ps1                 Instalador automatizado (Windows nativo, PowerShell)
 ```
@@ -80,6 +82,8 @@ vim.g.simplevim_theme = "catppuccin"  -- o "tokyonight"
 ## Primer uso
 
 Abre `nvim`. Lazy instalara los plugins automaticamente. Los servidores LSP se instalan via Mason (`:Mason`).
+
+> **Requisitos externos**: Telescope necesita `rg` (ripgrep) para `live_grep` y `fd` para un `find_files` rapido. Sin ellos veras un aviso y funcionara degradado. Los scripts de instalacion te avisan si faltan.
 
 Para ver el tiempo de carga:
 ```vim
