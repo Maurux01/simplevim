@@ -8,19 +8,26 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    lazy = vim.g.simplevim_theme ~= "catppuccin",
+    lazy = false,
     priority = 1000,
     config = function()
       require("catppuccin").setup({ flavour = "mocha" })
+      -- Solo aplica si es el tema elegido (evita pelear con tokyonight)
+      if (vim.g.simplevim_theme or "catppuccin") == "catppuccin" then
+        pcall(vim.cmd, "colorscheme catppuccin")
+      end
     end,
   },
   {
     "folke/tokyonight.nvim",
     name = "tokyonight",
-    lazy = vim.g.simplevim_theme ~= "tokyonight",
+    lazy = false,
     priority = 1000,
     config = function()
       require("tokyonight").setup({ style = "night" })
+      if (vim.g.simplevim_theme or "") == "tokyonight" then
+        pcall(vim.cmd, "colorscheme tokyonight")
+      end
     end,
   },
 
@@ -32,10 +39,21 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     event = "VeryLazy",
     config = function()
-      local theme_name = vim.g.simplevim_theme or "catppuccin"
-      require("lualine").setup({
+      -- "auto" sigue al colorscheme activo y nunca da
+      -- "Theme catppuccin not found". Solo se filtra a extensiones
+      -- que existen en tu lualine instalado (telescope/fugitive fueron
+      -- eliminadas y rompian el arranque si no tienes vim-fugitive).
+      local ok_lualine, lualine = pcall(require, "lualine")
+      if not ok_lualine then return end
+      local available_ext = {}
+      for _, ext in ipairs({ "nvim-tree", "lazy", "mason" }) do
+        if pcall(require, "lualine.extensions." .. ext) then
+          table.insert(available_ext, ext)
+        end
+      end
+      lualine.setup({
         options = {
-          theme = theme_name,
+          theme = "auto",
           component_separators = { left = "", right = "" },
           section_separators = { left = "", right = "" },
           disabled_filetypes = { "lazy", "mason", "dashboard" },
@@ -70,7 +88,7 @@ return {
           lualine_z = {},
         },
         tabline = {},
-        extensions = { "nvim-tree", "telescope", "fugitive" },
+        extensions = available_ext,
       })
     end,
   },

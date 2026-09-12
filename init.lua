@@ -99,9 +99,8 @@ opt.fillchars = {
 vim.g.simplevim_theme = "catppuccin"
 
 -- ---------------------------------------------
---  4. CARGAR MODULOS
+--  4. CARGAR MODULOS (keymaps ya, tema DESPUES de lazy)
 -- ---------------------------------------------
-require("theme").setup()
 require("keymaps")
 
 -- ---------------------------------------------
@@ -110,7 +109,7 @@ require("keymaps")
 -- Lazy.nvim ya cachea, pero esto fuerza re-uso del cache
 local lazy = require("lazy")
 lazy.setup("plugins", {
-  install = { colorscheme = { "catppuccin" } },
+  install = { colorscheme = { "catppuccin", "habamax" } },
   performance = {
     rtp = {
       disabled_plugins = {
@@ -126,3 +125,8 @@ lazy.setup("plugins", {
     },
   },
 })
+
+-- ---------------------------------------------
+--  6. APLICAR TEMA (despues de que lazy instalo/cargo todo)
+-- ---------------------------------------------
+require("theme").setup()
